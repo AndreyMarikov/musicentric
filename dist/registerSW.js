@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/musicentric/sw.js', { scope: '/musicentric/' })})}
