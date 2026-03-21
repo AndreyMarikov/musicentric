@@ -333,7 +333,7 @@ export default function TwoLineOctavePage() {
     currentNoteRef = noteRef;
   }
 
-  const startingMinutes = 2;
+  const startingMinutes = 1;
   let time = startingMinutes * 60;
 
   let [count, setCount] = useState(0);
@@ -446,7 +446,7 @@ export default function TwoLineOctavePage() {
 
   return (
     <>
-      { mode != 'warm-up' && <TurnYourDeviceMessage />}
+      <TurnYourDeviceMessage />
       <span ref={timeIsUpMessageRef} className='hidden warning-message center'>
         <h1>Время вышло!</h1>
         <h2>Правильных ответов: {correctAnswersRef.current}</h2>
@@ -461,13 +461,13 @@ export default function TwoLineOctavePage() {
         </span>
         {!showBtns && <span>
           <p ref={timerRef} id='timer' className='center'>
-            2:00
+            1:00
           </p>
         </span>}
       </header>
       <h1 style={{ margin: '64px 0' }}>Вторая октава</h1>
       <span className='center' id='staff-wrapper'>
-        {mode == 'warm-up' && <span style={{ "position": "relative" }}>
+        <span style={{ "position": "relative" }}>
           <img className="cat-image" src={Kitya}></img>
           <span ref={oopsMessageRef} className='message center hidden' id='message1'>
             Упс...
@@ -478,7 +478,7 @@ export default function TwoLineOctavePage() {
           <span ref={wellDoneMessageRef} className='message center hidden' id='message3'>
             Молодец!
           </span>
-        </span>}
+        </span>
         <span id='staff'>
           <TrebleClef />
           <img ref={cNoteRef} src={WholeNote} className='hidden note c5'></img>
@@ -529,33 +529,40 @@ export default function TwoLineOctavePage() {
           <button onClick={function () {
             clickedKey = 'C4';
             handleClick();
+            playSound(C5);
           }} className='center btn btn-red'>{noteNotation == 'c-d-e' ? 'C' : 'до'}</button>
           <button onClick={function () {
             clickedKey = 'D4';
             handleClick();
+            playSound(D5);
           }} className='center btn btn-orange'>{noteNotation == 'c-d-e' ? 'D' : 'ре'}</button>
           <button onClick={function () {
             clickedKey = 'E4';
             handleClick();
+            playSound(E);
           }} className='center btn btn-yellow'>{noteNotation == 'c-d-e' ? 'E' : 'ми'}</button>
           <button onClick={function () {
             clickedKey = 'F4';
             handleClick();
+            playSound(F);
           }} className='center btn btn-green'>{noteNotation == 'c-d-e' ? 'F' : 'фа'}</button>
           <button onClick={function () {
             clickedKey = 'G4';
             handleClick();
+            playSound(G);
           }} className='center btn btn-cyan'>{noteNotation == 'c-d-e' ? 'G' : 'соль'}</button>
           <button onClick={function () {
             clickedKey = 'A4';
             handleClick();
+            playSound(A5);
           }} className='center btn btn-blue'>{noteNotation == 'c-d-e' ? 'A' : 'ля'}</button>
           <button onClick={function () {
             clickedKey = 'B4';
             handleClick();
+            playSound(B5);
           }} className='center btn btn-purple'>{noteNotation == 'c-d-e' ? 'B' : 'си'}</button>
         </span> : <span ref={keyboardRef} className='hidden center' id='keyboard'>
-          <span id='white-keys'>
+          <span id='white-keys' style={{ position: mode == "with-double-sharps-and-double-flats" && "relative", right: mode == "with-double-sharps-and-double-flats" && -70 + "px" }}>
             {mode == 'with-double-sharps-and-double-flats' &&
               <button onMouseDown={function () {
                 playSound(A4);
@@ -624,40 +631,40 @@ export default function TwoLineOctavePage() {
                 playSound(BFlat4);
                 clickedKey = 'Bb3';
                 handleClick();
-              }} className='key-black' id='bb-prev-octave'></button>
+              }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='bb-prev-octave'></button>
             }
             <button onMouseDown={function () {
               playSound(DFlat5);
               clickedKey = 'Db4';
               handleClick();
-            }} className='key-black' id='db'></button>
+            }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='db'></button>
             <button onMouseDown={function () {
               playSound(EFlat);
               clickedKey = 'Eb';
               handleClick();
-            }} className='key-black' id='eb'></button>
+            }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='eb'></button>
             <button onMouseDown={function () {
               playSound(GFlat);
               clickedKey = 'Gb';
               handleClick();
-            }} className='key-black' id='gb'></button>
+            }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='gb'></button>
             <button onMouseDown={function () {
               playSound(AFlat);
               clickedKey = 'Ab';
               handleClick();
-            }} className='key-black' id='ab'></button>
+            }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='ab'></button>
             <button onMouseDown={function () {
               playSound(BFlat5);
               clickedKey = 'Bb4';
               handleClick();
-            }} className='key-black' id='bb'></button>
+            }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='bb'></button>
             {
               mode == 'with-double-sharps-and-double-flats' &&
               <button onMouseDown={function () {
                 playSound(DFlat6);
                 clickedKey = 'Db5';
                 handleClick();
-              }} className='key-black' id='db-next-octave'></button>
+              }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='db-next-octave'></button>
             }
           </span>
         </span>

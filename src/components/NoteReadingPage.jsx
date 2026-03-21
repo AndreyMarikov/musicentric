@@ -22,17 +22,17 @@ export default function NoteReadingPage() {
 
   return (
     <>
-      <h1>чтение нот</h1>
+      <h1>Чтение нот</h1>
       <span className="center" id="menu-btns">
-        <Link to={getPath()} className="btn btn-blue btn-menu">белые клавиши</Link>
+        <Link to={getPath()} className="btn btn-blue btn-menu">Белые клавиши</Link>
         <Link to={{
           pathname: '/mode-selection/note-reading/black-keys',
           search: octave && '?octave=' + octave,
-        }} className="btn btn-green btn-menu">чёрные клавиши</Link>
+        }} className="btn btn-green btn-menu"> Чёрные клавиши</Link>
         <Link to={{
           pathname: getPath(),
           search: '?mode=white-and-black-keys',
-        }} className="btn btn-purple btn-menu">белие и чёрные клавиши</Link>
+        }} className="btn btn-purple btn-menu">Белые и чёрные клавиши</Link>
       </span>
     </>
   );

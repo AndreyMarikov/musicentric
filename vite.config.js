@@ -13,5 +13,5 @@ export default defineConfig({
   resolve: {
     dedupe: ['react', 'react-dom'],
   },
-  base: "/sight-reading-webapp/",
+  base: "/musicentric/",
 })
