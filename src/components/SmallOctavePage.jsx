@@ -364,23 +364,19 @@ export default function SmallOctavePage() {
     if (showedNote && clickedKey) {
       if (showedNote != clickedKey) {
         incorrectAnswersRef.current += 1;
-        if (mode == 'warm-up') {
-          unhide(oopsMessageRef);
-          hide(wellDoneMessageRef);
-          hide(goodJobMessageRef);
-        }
+        unhide(oopsMessageRef);
+        hide(wellDoneMessageRef);
+        hide(goodJobMessageRef);
       } else {
         correctAnswersRef.current += 1;
         const randomNumber = randint(1);
-        if (mode == 'warm-up') {
-          hide(wellDoneMessageRef);
-          hide(goodJobMessageRef);
-          hide(oopsMessageRef);
-          if (randomNumber == 0) {
-            unhide(wellDoneMessageRef);
-          } else {
-            unhide(goodJobMessageRef);
-          }
+        hide(wellDoneMessageRef);
+        hide(goodJobMessageRef);
+        hide(oopsMessageRef);
+        if (randomNumber == 0) {
+          unhide(wellDoneMessageRef);
+        } else {
+          unhide(goodJobMessageRef);
         }
       }
     }
@@ -571,8 +567,10 @@ export default function SmallOctavePage() {
               }} className='key-white'></button>}
             <button onMouseDown={function () {
               playSound(C3);
-              clickedKey = 'A4';
+              clickedKey = 'C4';
+              console.log(showedNote, clickedKey)
               handleClick();
+              console.log(showedNote, clickedKey)
             }} className='key key-white'></button>
             <button onMouseDown={function () {
               playSound(D3);

@@ -100,6 +100,8 @@ export default function TwoLineOctavePage() {
   let showedNote;
 
   const showNote = (noteRef, sharpSymbolRef, flatSymbolRef, doubleSharpSymbolRef, doubleFlatSymbolRef, unhideLedgerLine) => {
+    console.log(clickedKey, showedNote)
+
     unhide(noteRef);
 
     if (unhideLedgerLine) {
@@ -368,23 +370,19 @@ export default function TwoLineOctavePage() {
     if (showedNote && clickedKey) {
       if (showedNote != clickedKey) {
         incorrectAnswersRef.current += 1;
-        if (mode == 'warm-up') {
-          unhide(oopsMessageRef);
-          hide(wellDoneMessageRef);
-          hide(goodJobMessageRef);
-        }
+        unhide(oopsMessageRef);
+        hide(wellDoneMessageRef);
+        hide(goodJobMessageRef);
       } else {
         correctAnswersRef.current += 1;
         const randomNumber = randint(1);
-        if (mode == 'warm-up') {
-          hide(wellDoneMessageRef);
-          hide(goodJobMessageRef);
-          hide(oopsMessageRef);
-          if (randomNumber == 0) {
-            unhide(wellDoneMessageRef);
-          } else {
-            unhide(goodJobMessageRef);
-          }
+        hide(wellDoneMessageRef);
+        hide(goodJobMessageRef);
+        hide(oopsMessageRef);
+        if (randomNumber == 0) {
+          unhide(wellDoneMessageRef);
+        } else {
+          unhide(goodJobMessageRef);
         }
       }
     }
@@ -520,7 +518,7 @@ export default function TwoLineOctavePage() {
           <hr></hr>
           <hr></hr>
           <hr></hr>
-          <hr style={{ transform: (mode != 'warm-up') ? "translateX(20%)" : "translateX(-20%)" }} ref={ledgerLineRef} className='hidden ledger-line' id='ledger-line-above'></hr>
+          <hr style={{ transform: "translateX(-20%)" }} ref={ledgerLineRef} className='hidden ledger-line' id='ledger-line-above'></hr>
         </span>
       </span>
 
@@ -572,7 +570,7 @@ export default function TwoLineOctavePage() {
             {(mode == 'white-and-black-keys' || mode == 'with-flats' || mode == 'with-sharps-and-flats' || mode == 'with-double-sharps-and-double-flats') &&
               <button id='key-b4' onMouseDown={function () {
                 playSound(B4);
-                clickedKey = 'B4';
+                clickedKey = 'B3';
                 handleClick();
               }} className='key-white'></button>}
             <button onMouseDown={function () {
@@ -640,17 +638,17 @@ export default function TwoLineOctavePage() {
             }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='db'></button>
             <button onMouseDown={function () {
               playSound(EFlat);
-              clickedKey = 'Eb';
+              clickedKey = 'Eb4';
               handleClick();
             }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='eb'></button>
             <button onMouseDown={function () {
               playSound(GFlat);
-              clickedKey = 'Gb';
+              clickedKey = 'Gb4';
               handleClick();
             }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='gb'></button>
             <button onMouseDown={function () {
               playSound(AFlat);
-              clickedKey = 'Ab';
+              clickedKey = 'Ab4';
               handleClick();
             }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='ab'></button>
             <button onMouseDown={function () {

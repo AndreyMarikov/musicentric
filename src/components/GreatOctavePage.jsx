@@ -372,23 +372,19 @@ export default function GreatOctavePage() {
     if (showedNote && clickedKey) {
       if (showedNote != clickedKey) {
         incorrectAnswersRef.current += 1;
-        if (mode == 'warm-up') {
-          unhide(oopsMessageRef);
-          hide(wellDoneMessageRef);
-          hide(goodJobMessageRef);
-        }
+        unhide(oopsMessageRef);
+        hide(wellDoneMessageRef);
+        hide(goodJobMessageRef);
       } else {
         correctAnswersRef.current += 1;
         const randomNumber = randint(1);
-        if (mode == 'warm-up') {
-          hide(wellDoneMessageRef);
-          hide(goodJobMessageRef);
-          hide(oopsMessageRef);
-          if (randomNumber == 0) {
-            unhide(wellDoneMessageRef);
-          } else {
-            unhide(goodJobMessageRef);
-          }
+        hide(wellDoneMessageRef);
+        hide(goodJobMessageRef);
+        hide(oopsMessageRef);
+        if (randomNumber == 0) {
+          unhide(wellDoneMessageRef);
+        } else {
+          unhide(goodJobMessageRef);
         }
       }
     }
@@ -470,7 +466,7 @@ export default function GreatOctavePage() {
           </p>
         </span>}
       </header>
-      <h1>большая октава</h1>
+      <h1>Большая октава</h1>
       <span className='center' id='staff-wrapper'>
         <span style={{ "position": "relative" }}>
           <img className="cat-image" src={Kitya}></img>
@@ -525,8 +521,8 @@ export default function GreatOctavePage() {
           <hr></hr>
           <hr></hr>
           <hr></hr>
-          <hr style={{ transform: (mode != 'warm-up') ? "translateX(20%)" : "translateX(-20%)" }} ref={ledgerLine1Ref} className='hidden ledger-line' id='ledger-line1'></hr>
-          <hr style={{ transform: (mode != 'warm-up') ? "translateX(20%)" : "translateX(-20%)" }} ref={ledgerLine2Ref} className='hidden ledger-line' id='ledger-line2'></hr>
+          <hr style={{ transform: "translateX(-20%)" }} ref={ledgerLine1Ref} className='hidden ledger-line' id='ledger-line1'></hr>
+          <hr style={{ transform: "translateX(-20%)" }} ref={ledgerLine2Ref} className='hidden ledger-line' id='ledger-line2'></hr>
         </span>
       </span>
 
@@ -583,7 +579,7 @@ export default function GreatOctavePage() {
               }} className='key-white'></button>}
             <button onMouseDown={function () {
               playSound(C2);
-              clickedKey = 'C2';
+              clickedKey = 'C4';
               handleClick();
             }} className='key key-white'></button>
             <button onMouseDown={function () {
