@@ -676,10 +676,6 @@ span:has(#menu-btns) {
     transform: translate(-90%);
   }
 
-  h1 {
-    display: none;
-  }
-
   #treble-clef {
     height: 136px;
     top: -21px;
