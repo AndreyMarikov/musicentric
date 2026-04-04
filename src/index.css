@@ -99,6 +99,8 @@ h1 {
   color: transparent;
   font-size: 64px;
   display: block !important;
+  visibility: visible !important;
+  position: static !important;
 }
 
 #staff {
