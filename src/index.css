@@ -996,7 +996,7 @@ span:has(#menu-btns) {
 
 @media (max-height: 380px) {
   .cat-image {
-    height: 150px;
+    height: 100px;
   }
 
   .message {
@@ -1007,7 +1007,6 @@ span:has(#menu-btns) {
     transform: translateX(-110%);
   }
 }
-
 
 .btn>p {
   width: fit-content;
