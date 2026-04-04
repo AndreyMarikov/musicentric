@@ -463,7 +463,6 @@ export default function TwoLineOctavePage() {
           </p>
         </span>}
       </header>
-      <h1 style={{ margin: '64px 0' }}>Вторая октава</h1>
       <span className='center' id='staff-wrapper'>
         <span style={{ "position": "relative" }}>
           <img className="cat-image" src={Kitya}></img>

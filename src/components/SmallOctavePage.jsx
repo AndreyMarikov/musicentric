@@ -456,7 +456,6 @@ export default function SmallOctavePage() {
           </p>
         </span>}
       </header>
-      <h1>Малая октава</h1>
       <span className='center' id='staff-wrapper'>
         <span style={{ "position": "relative" }}>
           <img className="cat-image" src={Kitya}></img>

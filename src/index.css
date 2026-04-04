@@ -47,8 +47,8 @@
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   margin: 0;
   padding: 15px;
   padding-bottom: 0;
@@ -98,6 +98,7 @@ h1 {
   -webkit-background-clip: text;
   color: transparent;
   font-size: 64px;
+  display: block !important;
 }
 
 #staff {
@@ -984,9 +985,20 @@ span:has(#menu-btns) {
   }
 }
 
+@media (max-height: 430px) {
+  .cat-image {
+    height: 200px;;
+  }
+
+  #staff {
+    position: relative;
+    top: 0;
+  }
+}
+
 @media (max-height: 380px) {
   .cat-image {
-    height: 200px;
+    height: 150px;
   }
 
   .message {
@@ -997,6 +1009,7 @@ span:has(#menu-btns) {
     transform: translateX(-110%);
   }
 }
+
 
 .btn>p {
   width: fit-content;
