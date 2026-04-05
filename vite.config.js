@@ -14,4 +14,7 @@ export default defineConfig({
     dedupe: ['react', 'react-dom'],
   },
   base: "/musicentric/",
+  build: {
+    outDir: "docs",
+  },
 })
