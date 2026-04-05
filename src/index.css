@@ -984,6 +984,10 @@ button {
     height: 200px;;
   }
 
+  .message {
+    top: -27px;
+  }
+
   #staff {
     position: relative;
     top: 0;
@@ -992,7 +996,7 @@ button {
 
 @media (max-height: 380px) {
   .cat-image {
-    height: 100px;
+    height: 150px;
   }
 
   .message {
@@ -1059,4 +1063,7 @@ button {
   z-index: 9999;
 }
 
-
+.bi-arrow-left {
+  color: red;
+  font-size: 50px;
+}
