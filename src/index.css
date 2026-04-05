@@ -56,7 +56,6 @@ body {
 
 #root {
   width: 100%;
-  height: 100%;
   max-width: 700px;
   flex-direction: column;
 }
@@ -73,7 +72,7 @@ body {
   visibility: hidden;
   display: none;
 }
-
+overflow
 hr {
   border: none;
   border-top: var(--border);
@@ -404,7 +403,7 @@ h1 {
   user-select: none;
   -moz-user-select: none;
   text-wrap: wrap;
-  line-height: 70px;
+  line-height: 60px;
 }
 
 .btn:active {
@@ -488,7 +487,6 @@ header {
 
 #menu-btns {
   flex-direction: column;
-  gap: 15px;
 }
 
 span:has(#menu-btns) {
@@ -520,6 +518,11 @@ span:has(#menu-btns) {
 #keyboard {
   position: relative;
   height: fit-content;
+}
+
+button {
+  outline: none;
+  border: none;
 }
 
 #white-keys,
@@ -948,13 +951,6 @@ span:has(#menu-btns) {
   }
 }
 
-@media (max-height: 350px) {
-  .bi-arrow-left {
-    position: absolute;
-    visibility: hidden;
-  }
-}
-
 @media (max-height: 580px) {
   .cat-image {
     height: 300px;
@@ -1062,3 +1058,5 @@ span:has(#menu-btns) {
   right: 100px;
   z-index: 9999;
 }
+
+

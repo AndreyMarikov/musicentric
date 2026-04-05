@@ -1,4 +1,5 @@
 import { Link, useSearchParams } from 'react-router-dom';
+import ExitButton from "./ExitButton";
 
 export default function NoteReadingPage() {
   const [searchParams] = useSearchParams();
@@ -33,6 +34,7 @@ export default function NoteReadingPage() {
           pathname: getPath(),
           search: '?mode=white-and-black-keys',
         }} className="btn btn-purple btn-menu">Белые и чёрные клавиши</Link>
+        <ExitButton />
       </span>
     </>
   );

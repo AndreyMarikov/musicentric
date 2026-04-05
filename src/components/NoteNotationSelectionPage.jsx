@@ -1,4 +1,5 @@
 import { Link, useSearchParams } from 'react-router-dom';
+import ExitButton from "./ExitButton";
 
 export default function NoteNotationSelectionPage() {
   const [searchParams] = useSearchParams();
@@ -26,6 +27,7 @@ export default function NoteNotationSelectionPage() {
       <span id='menu-btns' className='center'>
         <Link to={getPath() + '?mode=warm-up&note-notation=c-d-e'} className='btn btn-cyan btn-menu'>C-D-E</Link>
         <Link to={getPath() + '?mode=warm-up&note-notation=do-re-mi'} className='btn btn-orange btn-menu'>до-ре-ми</Link>
+        <ExitButton />
       </span>
     </>
   );

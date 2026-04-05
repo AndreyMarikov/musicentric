@@ -1,4 +1,5 @@
 import { Link, useSearchParams } from 'react-router-dom';
+import ExitButton from "./ExitButton";
 
 export default function ModeSelectionPage() {
   const [searchParams] = useSearchParams();
@@ -33,6 +34,7 @@ export default function ModeSelectionPage() {
           pathname: '/mode-selection/note-reading',
           search: octave && '?octave=' + octave,
         }} className="btn btn-red btn-menu">Чтение нот</Link>
+        <ExitButton />
       </span>
     </>
   );

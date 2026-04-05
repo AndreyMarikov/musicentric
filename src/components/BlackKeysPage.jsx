@@ -1,4 +1,5 @@
 import { Link, useSearchParams } from 'react-router-dom';
+import ExitButton from "./ExitButton";
 
 export default function BlackKeysPage() {
   const [searchParams] = useSearchParams();
@@ -44,6 +45,7 @@ export default function BlackKeysPage() {
           <br></br>
           и дубль-бемоли 𝄫
         </Link>
+        <ExitButton />
       </span>
     </>
   );
