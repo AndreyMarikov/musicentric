@@ -3,7 +3,7 @@
   "private": false,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://andreymarikov.github.io/sight-reading-webapp/",
+  "homepage": "https://andreymarikov.github.io/musicentric-v2/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

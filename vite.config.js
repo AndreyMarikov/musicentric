@@ -13,7 +13,7 @@ export default defineConfig({
   resolve: {
     dedupe: ['react', 'react-dom'],
   },
-  base: "/musicentric/",
+  base: "/musicentric-v2/",
   build: {
     outDir: "docs",
   },
