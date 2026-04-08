@@ -23,7 +23,7 @@ export default function BlackKeysPage() {
 
   return (
     <>
-      <h1 style={{ margin: 0 }}>Чёрные клавиши</h1>
+      <h1 style={{ margin: 0, top: 24 + "px" }}>Чёрные клавиши</h1>
       <span className="center" id="menu-btns">
         <Link to={{
           pathname: getPath(),

@@ -1,7 +1,7 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link, useSearchParams } from 'react-router-dom';
 import TrebleClef from './TrebleClef';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import C4 from '../assets/notes/C4.mp3';
 import D4 from '../assets/notes/D4.mp3';
 import D5 from '../assets/notes/D5.mp3';
@@ -351,6 +351,9 @@ export default function OneLineOctavePage() {
     if (minutes == 0 && seconds == 0) {
       timerRef.current.innerText = '0:00';
       timeIsUpMessageRef.current.classList.remove('hidden');
+      useEffect(() => {
+        document.body.style.overflow = "hidden";
+      }, []);
       forceUpdate();
       return;
     }
@@ -445,9 +448,16 @@ export default function OneLineOctavePage() {
     <>
       <TurnYourDeviceMessage />
       <span ref={timeIsUpMessageRef} className='hidden warning-message center'>
-        <h1>Время вышло!</h1>
-        <h2>Правильных ответов: {correctAnswersRef.current}</h2>
+        <span style={{ position: "fixed", top: 0, gap: 24 + "px" }}>
+        <h1 style={{ position: "static" }}>Время вышло!</h1>
+        <span>
+        <h2 style={{ marginBottom: 0 }}>Правильных ответов: {correctAnswersRef.current}</h2>
         <h2>Неправильных ответов: {incorrectAnswersRef.current}</h2>
+        <span style={{ position: "fixed", bottom: 0, left: 0, width: 100 + "%" }}>
+        <Link to='/' className='btn btn-orange' style={{ bottom: 44 + 8 + "px", width: 240 + "px" }}>Вернуться в меню</Link>
+        </span>
+        </span>
+        </span>
       </span>
       <link rel='stylesheet' href='octave.css'></link>
       <header>

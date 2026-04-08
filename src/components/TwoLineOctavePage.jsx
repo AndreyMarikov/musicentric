@@ -446,8 +446,8 @@ export default function TwoLineOctavePage() {
     <>
       <TurnYourDeviceMessage />
       <span ref={timeIsUpMessageRef} className='hidden warning-message center'>
-        <h1>Время вышло!</h1>
-        <h2>Правильных ответов: {correctAnswersRef.current}</h2>
+        <h1 style={{ position: "static" }}>Время вышло!</h1>
+        <h2 style={{ marginBottom: 0 }}>Правильных ответов: {correctAnswersRef.current}</h2>
         <h2>Неправильных ответов: {incorrectAnswersRef.current}</h2>
       </span>
       <link rel='stylesheet' href='octave.css'></link>

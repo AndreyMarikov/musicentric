@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 :root {
   --gray30: hsl(0, 0%, 30%);
   --gray25: hsl(0, 0%, 25%);
@@ -9,37 +11,39 @@
   --bluish-gray: hsl(240, 10%, 10%);
   --clef-size: 99px;
   --border: 2px solid var(--gray30);
-  --green23: hsl(100, 100%, 23%);
-  --green30: hsl(100, 100%, 30%);
+  --green23: hsl(100, 76%, 35%);
+  --green30: hsl(100, 72%, 45%);
   --green33: hsl(100, 100%, 33%);
   --green38: hsl(100, 100%, 38%);
-  --red40: hsl(0, 100%, 40%);
-  --red50: hsl(0, 100%, 50%);
+  --red40: hsl(0, 78%, 55%);
+  --red50: hsl(0, 100%, 65%);
   --red65: hsl(0, 100%, 65%);
   --red72: hsl(0, 100%, 72%);
-  --orange40: hsl(30, 100%, 40%);
-  --orange50: hsl(30, 100%, 50%);
+  --orange40: hsl(30, 82%, 49%);
+  --orange50: hsl(30, 100%, 59%);
   --orange60: hsl(30, 100%, 60%);
   --orange65: hsl(30, 100%, 65%);
   --yellow40: hsl(50, 100%, 40%);
   --yellow50: hsl(50, 100%, 50%);
   --yellow70: hsl(50, 100%, 70%);
   --yellow80: hsl(50, 100%, 80%);
-  --cyan40: hsl(200, 100%, 40%);
-  --cyan50: hsl(200, 100%, 50%);
+  --cyan40: hsl(200, 74%, 49%);
+  --cyan50: hsl(200, 100%, 62%);
   --cyan55: hsl(200, 100%, 55%);
   --cyan65: hsl(200, 100%, 65%);
-  --blue40: hsl(220, 100%, 40%);
-  --blue50: hsl(220, 100%, 50%);
+  --blue40: hsl(220, 70%, 49%);
+  --blue50: hsl(220, 100%, 61%);
   --blue55: hsl(220, 100%, 55%);
   --blue63: hsl(220, 100%, 63%);
-  --purple40: hsl(280, 100%, 40%);
-  --purple50: hsl(280, 100%, 50%);
+  --purple40: hsl(280, 78%, 51%);
+  --purple50: hsl(280, 100%, 64%);
   --purple60: hsl(280, 100%, 60%);
   --purple65: hsl(280, 100%, 65%);
   color: var(--bluish-gray);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Rubik';
   overflow-x: hidden;
+  color-scheme: light;
+  user-select: none;
 }
 
 * {
@@ -50,14 +54,18 @@ body {
   width: 100dvw;
   height: 100dvh;
   margin: 0;
-  padding: 15px;
-  padding-bottom: 0;
+  background-image: url("./assets/bg.jpg");
+  background-size: cover;
+  background-position: 25%;
+  background-color: var(--white);
 }
 
 #root {
   width: 100%;
-  max-width: 700px;
+  max-width: 100%;
+  min-height: 100%;
   flex-direction: column;
+  justify-content: end;
 }
 
 .center {
@@ -72,7 +80,7 @@ body {
   visibility: hidden;
   display: none;
 }
-overflow
+
 hr {
   border: none;
   border-top: var(--border);
@@ -92,20 +100,38 @@ a {
 }
 
 h1 {
-  background-image: linear-gradient(to right, var(--red50), var(--orange50), var(--yellow50), var(--green38), var(--cyan50), var(--blue50), var(--purple50));
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  font-size: 64px;
+  font-size: 48px;
   display: block !important;
   visibility: visible !important;
-  position: static !important;
+  line-height: 42px;
+  position: fixed;
+  top: 0;
+}
+
+h1,
+h2 {
+  color: hsl(0, 0%, 25%);
+}
+
+@media (max-height: 635px) {
+  body{
+    background-image: none;
+  }
+  #menu-btns {
+    height: 100%;
+  }
+}
+
+@media (max-height: 600px) {
+  h1 {
+    top: 0 !important;
+  }
 }
 
 #staff {
   width: 100%;
   position: relative;
-  top: 20px;
+  top: 0px;
   border: var(--border);
   border-bottom: none;
   margin-bottom: 150px;
@@ -391,19 +417,23 @@ h1 {
   position: relative;
   text-transform: uppercase;
   color: var(--white);
-  border-width: 3px;
-  border-style: solid;
   width: fit-content;
-  font-size: 32px;
-  font-weight: bold;
-  border-radius: 8px;
-  padding: 0 15px;
-  margin-bottom: 8px;
-  margin-top: 0;
+  font-size: 24px;
+  font-weight: 900;
+  border-radius: 30px;
   user-select: none;
   -moz-user-select: none;
   text-wrap: wrap;
-  line-height: 60px;
+  line-height: 32px;
+  padding: 14px;
+  padding-inline: 24px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.btn:active {
+  margin-top: 8px;
+  margin-bottom: 0;
 }
 
 .btn:active {
@@ -412,34 +442,41 @@ h1 {
 
 .btn-red {
   background: var(--red50);
+  box-shadow: 0px 8px 0 var(--red40);
 }
 
 .btn-orange {
   background: var(--orange50);
+  box-shadow: 0px 8px 0 var(--orange40);
 }
 
 .btn-yellow {
   background: var(--yellow50);
+  box-shadow: 0px 8px 0 var(--yellow40);
 }
 
 .btn-green {
   background: var(--green30);
+  box-shadow: 0px 8px 0 var(--green23);
 }
 
 .btn-cyan {
   background: var(--cyan50);
+  box-shadow: 0px 8px 0 var(--cyan40);
 }
 
 .btn-blue {
   background: var(--blue50);
+  box-shadow: 0px 8px 0 var(--blue40);
 }
 
 .btn-purple {
   background: var(--purple50);
+  box-shadow: 0px 8px 0 var(--purple40);
 }
 
 header {
-  padding: 5px;
+  padding: 4px;
   justify-content: space-between;
   position: fixed;
   top: 0;
@@ -451,6 +488,7 @@ header {
   align-items: center;
   max-width: 1000px;
   z-index: 9999;
+  padding-inline: 10px;
 }
 
 .bi-arrow-left {
@@ -462,20 +500,11 @@ header {
   z-index: 5;
 }
 
-.bi-arrow-left:hover {
-  background-color: hsl(0, 0%, 90%);
-}
-
-.bi-arrow-left:active {
-  background-color: hsl(0, 0%, 80%);
-}
-
 #btns {
   width: 100%;
   height: 50px;
-  gap: 7px;
+  gap: 8px;
   flex-wrap: wrap;
-  margin-bottom: 8px;
 }
 
 #btns>button {
@@ -487,6 +516,28 @@ header {
 
 #menu-btns {
   flex-direction: column;
+  gap: 10px;
+  border-radius: 32px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: var(--white);
+  min-width: 100vw;
+  padding: 16px;
+  padding-block: 24px;
+}
+
+#btn-start {
+  position: relative;
+  bottom: 16px;
+  margin-top: 0px;
+}
+
+#btn-start:active {
+  margin-top: 8px;
+}
+
+#btn-start:active {
+  bottom: 16px;
 }
 
 span:has(#menu-btns) {
@@ -497,6 +548,8 @@ span:has(#menu-btns) {
 #menu-btns {
   width: 100%;
   max-width: 370px;
+  margin-top: 24px;
+
 }
 
 .btn-menu {
@@ -535,10 +588,15 @@ button {
   width: 70px;
   height: 200px;
   border-radius: 5px;
-  border: 1px solid hsl(0, 0%, 80%);
+  border: 3px solid hsl(0, 0%, 87.5%);
+  border-left: none;
   background-color: var(--white);
   position: relative;
   margin-bottom: 20px;
+}
+
+.key-white:first-child {
+  border-left: 3px solid hsl(0, 0%, 87.5%);
 }
 
 #key-a-prev-octave {
@@ -547,29 +605,35 @@ button {
 }
 
 .key-white:active {
-  box-shadow: 0 0px 7px var(--gray60);
-  background-color: hsl(0, 0%, 87%);
+  background-color: hsl(0, 0%, 92.5%);
 }
 
 .key-black {
   position: absolute;
   top: -12px;
-  background: linear-gradient(var(--gray40), var(--gray20));
-  box-shadow: 0 2px 0 var(--gray25), 0 12px 0 var(--gray20), 0 12px 5px var(--gray20);
-  border: 2px solid var(--gray20);
+  background: var(--gray30);
+  box-shadow: 0 12px 0 hsl(0, 0%, 20%);
   border-radius: 8px;
   width: 50px;
   height: 100px;
   transform: translateX(-50%);
 }
-
+#staff {
+  max-width: 465px !important;
+  width: 100%;
+}
 .wdf {
   transform: translateX(70px) translateX(-50%);
 }
 
 .key-black:active {
-  box-shadow: 0 0px 5px var(--gray20);
+  box-shadow: 0 0px 5px transparent;
   top: 0px;
+}
+
+.cat-image {
+  position: relative;
+  bottom: 16px;
 }
 
 .key-black#db {
@@ -589,7 +653,13 @@ button {
 }
 
 #message1 {
-  color: red;
+  color: rgb(255, 95, 95);
+}
+
+#message2,
+#message3 {
+  line-height: 20px;
+  color: rgb(85, 255, 0);
 }
 
 .key-black#bb {
@@ -613,12 +683,12 @@ button {
 }
 
 .message {
-  position: absolute;
+  position: relative;
   background-color: hsl(0, 0%, 97%);
   width: 150px;
   height: 50px;
-  top: -60px;
-  left: 120px;
+  top: -10px;
+  left: 90px;
   border-radius: 10px;
   font-size: 24px;
   font-weight: bold;
@@ -633,6 +703,7 @@ button {
   background: hsl(0, 0%, 97%);
   outline: 3px solid hsl(0, 0%, 85%);
   transform: translate(-60px, -50px);
+  position: absolute;
   display: none;
 }
 
@@ -644,7 +715,9 @@ button {
   background: hsl(0, 0%, 97%);
   outline: 3px solid hsl(0, 0%, 85%);
   transform: translate(-180px, 20px);
+  position: absolute;
   display: none;
+  left: 110px;
 }
 
 .cat-image {
@@ -915,7 +988,7 @@ button {
 
   .message {
     top: 20px;
-    left: 220px;
+    left: 240px;
   }
 }
 
@@ -937,6 +1010,7 @@ button {
     position: absolute;
     background-color: hsl(0, 0%, 97%);
     border-radius: 10px;
+    left: 154%;
   }
 
   .message::before {
@@ -981,11 +1055,11 @@ button {
 
 @media (max-height: 430px) {
   .cat-image {
-    height: 200px;;
+    height: 182px;;
   }
 
   .message {
-    top: -27px;
+    top: -14px;
   }
 
   #staff {
@@ -996,15 +1070,11 @@ button {
 
 @media (max-height: 380px) {
   .cat-image {
-    height: 150px;
-  }
-
-  .message {
-    height: 50px;
+    height: 182px;
   }
 
   .note {
-    transform: translateX(-110%);
+    transform: translateX(-95%);
   }
 }
 
@@ -1021,18 +1091,27 @@ button {
 }
 
 .warning-message {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: var(--white);
   z-index: 99999;
   flex-direction: column;
+  overflow: hidden;
+  background-image: url("./assets/bg.jpg");
+  background-size: cover;
+  background-position: 25%;
 }
 
 #turn-your-device-message {
   display: none;
+  background-image: none;
+}
+
+.warning-message a:active {
+  bottom: 44px !important;
 }
 
 .warning-message h1 {
@@ -1056,14 +1135,6 @@ button {
   width: 100%;
 }
 
-#timer {
-  position: fixed;
-  top: 10px;
-  right: 100px;
-  z-index: 9999;
-}
-
 .bi-arrow-left {
-  color: red;
-  font-size: 50px;
+  font-size: 42px;
 }
