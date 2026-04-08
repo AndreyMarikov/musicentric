@@ -1114,10 +1114,6 @@ h2 {
   background-image: none;
 }
 
-.warning-message a:active {
-  bottom: 44px !important;
-}
-
 .warning-message h1 {
   display: block !important;
 }
@@ -1134,6 +1130,11 @@ h2 {
   }
 }
 
+.warning-message a {
+  bottom: 0;
+  position: static;
+}
+
 #staff-wrapper {
   gap: 10px;
   width: 100%;
@@ -1141,4 +1142,9 @@ h2 {
 
 .bi-arrow-left {
   font-size: 42px;
+}
+
+#btns {
+  position: relative;
+  bottom: calc(8px + 12px);
 }

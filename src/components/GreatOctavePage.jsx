@@ -452,10 +452,11 @@ export default function GreatOctavePage() {
         <span style={{ position: "fixed", top: 0, gap: 24 + "px" }}>
         <h1 style={{ position: "static" }}>Время вышло!</h1>
         <span>
+        
+        <Link to='/' className='btn btn-orange' style={{ bottom: 44 + 8 + "px", width: 240 + "px" }}>Вернуться в меню</Link>
+        <span style={{ position: "fixed", bottom: 0, left: 0, width: 100 + "%" }}>
         <h2 style={{ marginBottom: 0 }}>Правильных ответов: {correctAnswersRef.current}</h2>
         <h2>Неправильных ответов: {incorrectAnswersRef.current}</h2>
-        <span style={{ position: "fixed", bottom: 0, left: 0, width: 100 + "%" }}>
-        <Link to='/' className='btn btn-orange' style={{ bottom: 44 + 8 + "px", width: 240 + "px" }}>Вернуться в меню</Link>
         </span>
         </span>
         </span>
@@ -473,7 +474,7 @@ export default function GreatOctavePage() {
           </p>
         </span>}
       </header>
-      <span className='center' id='staff-wrapper'>
+      <span className='center' id='staff-wrapper' style={{ position: (mode === "warm-up" && "relative"), bottom: (mode === "warm-up" && 32 + "px") }}>
         <span style={{ "position": "relative" }}>
           <img className="cat-image" src={Kitya}></img>
           <span ref={oopsMessageRef} className='message center hidden' id='message1'>
