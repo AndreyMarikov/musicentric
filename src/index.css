@@ -584,6 +584,10 @@ button {
   flex-wrap: nowrap;
 }
 
+h2 {
+  font-size: 26px;
+}
+
 .key-white {
   width: 70px;
   height: 200px;

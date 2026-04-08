@@ -565,7 +565,7 @@ export default function TwoLineOctavePage() {
             handleClick();
             playSound(B5);
           }} className='center btn btn-purple'>{noteNotation == 'c-d-e' ? 'B' : 'си'}</button>
-        </span> : <span ref={keyboardRef} className='hidden center' id='keyboard'>
+        </span> : <span ref={keyboardRef} className='hidden center' id='keyboard' style={{ left: ((mode != "with-double-sharps-and-double-flats" && mode != "with-sharps" && mode != undefined) ? 76 : 0) / 2 + "px" }}>
           <span id='white-keys' style={{ position: mode == "with-double-sharps-and-double-flats" && "relative", right: mode == "with-double-sharps-and-double-flats" && -70 + "px" }}>
             {mode == 'with-double-sharps-and-double-flats' &&
               <button onMouseDown={function () {
