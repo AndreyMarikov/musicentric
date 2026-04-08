@@ -351,9 +351,6 @@ export default function OneLineOctavePage() {
     if (minutes == 0 && seconds == 0) {
       timerRef.current.innerText = '0:00';
       timeIsUpMessageRef.current.classList.remove('hidden');
-      useEffect(() => {
-        document.body.style.overflow = "hidden";
-      }, []);
       forceUpdate();
       return;
     }
