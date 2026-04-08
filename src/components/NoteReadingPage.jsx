@@ -23,6 +23,13 @@ export default function NoteReadingPage() {
 
   return (
     <>
+      <style>
+        {`
+          #root {
+            justify-content: end !important;
+          }
+        `}
+      </style>
       <h1>Чтение нот</h1>
       <span className="center" id="menu-btns">
         <Link to={getPath()} className="btn btn-blue btn-menu">Белые клавиши</Link>

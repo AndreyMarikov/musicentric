@@ -27,6 +27,13 @@ export default function ModeSelectionPage() {
 
   return (
     <>
+      <style>
+        {`
+          #root {
+            justify-content: end !important;
+          }
+        `}
+      </style>
       <h1>Выберите режим</h1>
       <span className="center" id="menu-btns">
         <Link to={'/note-notation-selection?octave=' + octave} className="btn btn-orange btn-menu">Разминка</Link>

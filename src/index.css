@@ -65,7 +65,7 @@ body {
   max-width: 100%;
   min-height: 100%;
   flex-direction: column;
-  justify-content: end;
+  justify-content: center;
 }
 
 .center {

@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom'
 export default function Home() {
   return (
     <>
+      <style>
+        {`
+          #root {
+            justify-content: end !important;
+          }
+        `}
+      </style>
       <h1>Выберите октаву</h1>
       <span className='center' id='menu-btns'>
         <Link to={{

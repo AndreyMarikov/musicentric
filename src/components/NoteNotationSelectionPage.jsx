@@ -23,6 +23,13 @@ export default function NoteNotationSelectionPage() {
 
   return (
     <>
+      <style>
+        {`
+          #root {
+            justify-content: end !important;
+          }
+        `}
+      </style>
       <h1>Выберите обозначение нот</h1>
       <span id='menu-btns' className='center'>
         <Link to={getPath() + '?mode=warm-up&note-notation=c-d-e'} className='btn btn-cyan btn-menu'>C-D-E</Link>
