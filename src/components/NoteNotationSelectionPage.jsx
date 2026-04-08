@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import ExitButton from "./ExitButton";
+import TurnYourDeviceMessage2 from "./TurnYourDeviceMessage2";
 
 export default function NoteNotationSelectionPage() {
   const [searchParams] = useSearchParams();
@@ -30,6 +31,7 @@ export default function NoteNotationSelectionPage() {
           }
         `}
       </style>
+      <TurnYourDeviceMessage2 />
       <h1>Выберите обозначение нот</h1>
       <span id='menu-btns' className='center'>
         <Link to={getPath() + '?mode=warm-up&note-notation=c-d-e'} className='btn btn-cyan btn-menu'>C-D-E</Link>

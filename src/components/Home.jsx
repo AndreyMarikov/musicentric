@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import TurnYourDeviceMessage2 from "./TurnYourDeviceMessage2";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
           }
         `}
       </style>
+      <TurnYourDeviceMessage2 />
       <h1>Выберите октаву</h1>
       <span className='center' id='menu-btns'>
         <Link to={{

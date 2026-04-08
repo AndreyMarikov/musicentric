@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import ExitButton from "./ExitButton";
+import TurnYourDeviceMessage2 from "./TurnYourDeviceMessage2";
 
 export default function BlackKeysPage() {
   const [searchParams] = useSearchParams();
@@ -30,6 +31,7 @@ export default function BlackKeysPage() {
           }
         `}
       </style>
+      <TurnYourDeviceMessage2 />
       <h1 style={{ margin: 0, top: 86 + "px" }}>Чёрные клавиши</h1>
       <span className="center" id="menu-btns">
         <Link to={{

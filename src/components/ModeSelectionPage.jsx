@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import ExitButton from "./ExitButton";
+import TurnYourDeviceMessage2 from "./TurnYourDeviceMessage2";
 
 export default function ModeSelectionPage() {
   const [searchParams] = useSearchParams();
@@ -34,6 +35,7 @@ export default function ModeSelectionPage() {
           }
         `}
       </style>
+      <TurnYourDeviceMessage2 />
       <h1>Выберите режим</h1>
       <span className="center" id="menu-btns">
         <Link to={'/note-notation-selection?octave=' + octave} className="btn btn-orange btn-menu">Разминка</Link>
