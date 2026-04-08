@@ -446,9 +446,16 @@ export default function TwoLineOctavePage() {
     <>
       <TurnYourDeviceMessage />
       <span ref={timeIsUpMessageRef} className='hidden warning-message center'>
+        <span style={{ position: "fixed", top: 0, gap: 24 + "px" }}>
         <h1 style={{ position: "static" }}>Время вышло!</h1>
+        <span>
         <h2 style={{ marginBottom: 0 }}>Правильных ответов: {correctAnswersRef.current}</h2>
         <h2>Неправильных ответов: {incorrectAnswersRef.current}</h2>
+        <span style={{ position: "fixed", bottom: 0, left: 0, width: 100 + "%" }}>
+        <Link to='/' className='btn btn-orange' style={{ bottom: 44 + 8 + "px", width: 240 + "px" }}>Вернуться в меню</Link>
+        </span>
+        </span>
+        </span>
       </span>
       <link rel='stylesheet' href='octave.css'></link>
       <header>
