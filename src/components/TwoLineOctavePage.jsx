@@ -450,7 +450,7 @@ export default function TwoLineOctavePage() {
         <h1 style={{ position: "static" }}>Время вышло!</h1>
         <span>
         <Link to='/' className='btn btn-orange' style={{ bottom: 44 + 8 + "px", width: 240 + "px" }}>Вернуться в меню</Link>
-        <span style={{ position: "fixed", bottom: 0, left: 0, width: 100 + "%" }}>
+        <span id='answers' style={{ position: "fixed", bottom: 0, left: 0, width: 100 + "%" }}>
         <h2 style={{ marginBottom: 0 }}>Правильных ответов: {correctAnswersRef.current}</h2>
         <h2>Неправильных ответов: {incorrectAnswersRef.current}</h2>
         
