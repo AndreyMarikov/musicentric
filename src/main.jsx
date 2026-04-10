@@ -12,6 +12,7 @@ import GreatOctavePage from './components/GreatOctavePage';
 import SmallOctavePage from './components/SmallOctavePage';
 import OneLineOctavePage from './components/OneLineOctavePage';
 import TwoLineOctavePage from './components/TwoLineOctavePage';
+import Pricing from './components/Pricing';
 
 const router = createHashRouter([
   {
@@ -50,6 +51,12 @@ const router = createHashRouter([
     path: '/two-line-octave',
     element: <TwoLineOctavePage />,
   },
+  /*
+  {
+    path: '/pricing',
+    element: <Pricing />,
+  },
+  */
   {
     path: '*',
     element: <NotFoundPage />

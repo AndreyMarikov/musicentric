@@ -1,0 +1,8 @@
+.wrapper {
+  display: flex;
+  flex: 1;
+  background-color: var(--white);
+  position: fixed;
+  top: 0;
+  left: 0;
+}

@@ -133,6 +133,14 @@ h2 {
   }
 }
 
+#btns button {
+  margin-top: 0;
+}
+
+#btns button:active {
+  margin-top: 8px;
+}
+
 #staff {
   width: 100%;
   position: relative;
