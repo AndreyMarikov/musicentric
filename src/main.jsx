@@ -2,59 +2,59 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
-import Home from './components/Home';
-import ModeSelectionPage from './components/ModeSelectionPage';
-import NoteNotationSelectionPage from './components/NoteNotationSelectionPage';
-import NoteReadingPage from './components/NoteReadingPage';
-import BlackKeysPage from './components/BlackKeysPage';
+import OctaveMenu from './components/menus/OctaveMenu';
+import ModeMenu from './components/menus/ModeMenu';
+import NoteNotationMenu from './components/menus/NoteNotationMenu';
+import NoteReadingMenu from './components/menus/NoteReadingMenu';
+import BlackKeysMenu from './components/menus/BlackKeysMenu';
 import NotFoundPage from './components/NotFoundPage';
-import GreatOctavePage from './components/GreatOctavePage';
-import SmallOctavePage from './components/SmallOctavePage';
-import OneLineOctavePage from './components/OneLineOctavePage';
-import TwoLineOctavePage from './components/TwoLineOctavePage';
-import Pricing from './components/Pricing';
+import GreatOctave from './components/GreatOctave';
+import SmallOctave from './components/SmallOctave';
+import OneLineOctave from './components/OneLineOctave';
+import TwoLineOctave from './components/TwoLineOctave';
+import PricingPage from './components/PricingPage';
 
 const router = createHashRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <OctaveMenu />,
   },
   {
-    path: '/mode-selection',
-    element: <ModeSelectionPage />,
+    path: '/mode',
+    element: <ModeMenu />,
   },
   {
-    path: '/note-notation-selection',
-    element: <NoteNotationSelectionPage />,
+    path: '/note-notation',
+    element: <NoteNotationMenu />,
   },
   {
-    path: '/mode-selection/note-reading',
-    element: <NoteReadingPage />,
+    path: '/mode/note-reading',
+    element: <NoteReadingMenu />,
   },
   {
-    path: '/mode-selection/note-reading/black-keys',
-    element: <BlackKeysPage />,
+    path: '/mode/note-reading/black-keys',
+    element: <BlackKeysMenu />,
   },
   {
     path: '/small-octave',
-    element: <SmallOctavePage />,
+    element: <SmallOctave />,
   },
   {
     path: '/great-octave',
-    element: <GreatOctavePage />,
+    element: <GreatOctave />,
   },
   {
     path: '/one-line-octave',
-    element: <OneLineOctavePage />,
+    element: <OneLineOctave />,
   },
   {
     path: '/two-line-octave',
-    element: <TwoLineOctavePage />,
+    element: <TwoLineOctave />,
   },
   /*
   {
     path: '/pricing',
-    element: <Pricing />,
+    element: <PricingPage />,
   },
   */
   {

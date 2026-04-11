@@ -1,8 +1,8 @@
 import { Link, useSearchParams } from 'react-router-dom';
-import ExitButton from "./ExitButton";
-import TurnYourDeviceMessage2 from "./TurnYourDeviceMessage2";
+import ExitButton from "../ExitButton";
+import TurnYourDeviceMessage from "../TurnYourDeviceMessageLandscape";
 
-export default function NoteNotationSelectionPage() {
+export default function NoteNotationMenu() {
   const [searchParams] = useSearchParams();
   const octave = searchParams.get('octave');
 
@@ -31,7 +31,7 @@ export default function NoteNotationSelectionPage() {
           }
         `}
       </style>
-      <TurnYourDeviceMessage2 />
+      <TurnYourDeviceMessage />
       <h1>Выберите обозначение нот</h1>
       <span id='menu-btns' className='center'>
         <Link to={getPath() + '?mode=warm-up&note-notation=c-d-e'} className='btn btn-cyan btn-menu'>C-D-E</Link>

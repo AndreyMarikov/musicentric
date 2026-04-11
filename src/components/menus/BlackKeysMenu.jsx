@@ -1,8 +1,8 @@
 import { Link, useSearchParams } from 'react-router-dom';
-import ExitButton from "./ExitButton";
-import TurnYourDeviceMessage2 from "./TurnYourDeviceMessage2";
+import ExitButton from "../ExitButton";
+import TurnYourDeviceMessage from "../TurnYourDeviceMessageLandscape";
 
-export default function BlackKeysPage() {
+export default function BlackKeysMenu() {
   const [searchParams] = useSearchParams();
   const octave = searchParams.get('octave');
 
@@ -31,7 +31,7 @@ export default function BlackKeysPage() {
           }
         `}
       </style>
-      <TurnYourDeviceMessage2 />
+      <TurnYourDeviceMessage />
       <h1 style={{ margin: 0, top: 86 + "px" }}>Чёрные клавиши</h1>
       <span className="center" id="menu-btns">
         <Link to={{

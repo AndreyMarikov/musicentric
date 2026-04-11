@@ -1,37 +1,38 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link, useSearchParams } from 'react-router-dom';
-import BassClef from './BassClef';
-import { useRef, useState } from 'react';
-import C2 from '../assets/notes/C2.mp3';
-import D2 from '../assets/notes/D2.mp3';
-import E from '../assets/notes/E2.mp3';
-import F from '../assets/notes/F2.mp3';
-import G from '../assets/notes/G2.mp3';
-import A2 from '../assets/notes/A2.mp3';
-import A1 from '../assets/notes/A1.mp3';
-import B2 from '../assets/notes/B2.mp3';
-import B1 from '../assets/notes/B1.mp3';
-import C3 from '../assets/notes/C3.mp3';
-import D3 from '../assets/notes/D3.mp3';
-import DFlat2 from '../assets/notes/Db2.mp3';
-import DFlat3 from '../assets/notes/Db3.mp3';
-import EFlat from '../assets/notes/Eb2.mp3';
-import GFlat from '../assets/notes/Gb2.mp3';
-import AFlat from '../assets/notes/Ab2.mp3';
-import BFlat2 from '../assets/notes/Bb2.mp3';
-import BFlat1 from '../assets/notes/Bb1.mp3';
+import TrebleClef from './TrebleClef';
+import { useEffect, useRef, useState } from 'react';
+import C4 from '../assets/notes/C4.mp3';
+import D4 from '../assets/notes/D4.mp3';
+import D5 from '../assets/notes/D5.mp3';
+import E from '../assets/notes/E4.mp3';
+import F from '../assets/notes/F4.mp3';
+import G from '../assets/notes/G4.mp3';
+import A4 from '../assets/notes/A4.mp3';
+import A3 from '../assets/notes/A3.mp3';
+import B4 from '../assets/notes/B4.mp3';
+import B3 from '../assets/notes/B3.mp3';
+import C5 from '../assets/notes/C5.mp3';
+import DFlat4 from '../assets/notes/Db4.mp3';
+import DFlat5 from '../assets/notes/Db5.mp3';
+import EFlat from '../assets/notes/Eb4.mp3';
+import GFlat from '../assets/notes/Gb4.mp3';
+import AFlat from '../assets/notes/Ab4.mp3';
+import BFlat4 from '../assets/notes/Bb4.mp3';
+import BFlat3 from '../assets/notes/Bb3.mp3';
 import WholeNote from '../assets/Whole_note.svg';
 import SharpSymbol from '../assets/Sharp.svg';
 import FlatSymbol from '../assets/Flat.svg';
 import DoubleSharpSymbol from '../assets/Double_sharp.svg';
 import DoubleFlatSymbol from '../assets/Double_flat.svg';
-import TurnYourDeviceMessage from './TurnYourDeviceMessage';
+import TurnYourDeviceMessage from './TurnYourDeviceMessagePortrait';
 import Kitya from '../assets/kitya.gif';
 
-export default function GreatOctavePage() {
+export default function OneLineOctavePage() {
   const btnsRef = useRef(null);
   const keyboardRef = useRef(null);
   const startBtnRef = useRef(null);
+  const timeIsUpMessageRef = useRef(null);
   const aNoteRef = useRef(null);
   const bNoteRef = useRef(null);
   const cNoteRef = useRef(null);
@@ -67,9 +68,8 @@ export default function GreatOctavePage() {
   const gDoubleFlatSymbolRef = useRef(null);
   const aDoubleFlatSymbolRef = useRef(null);
   const bDoubleFlatSymbolRef = useRef(null);
+  const ledgerLineRef = useRef(null);
   const timerRef = useRef(null);
-  const ledgerLine1Ref = useRef(null);
-  const ledgerLine2Ref = useRef(null);
   const [searchParams] = useSearchParams();
   const mode = searchParams.get('mode');
   const noteNotation = searchParams.get('note-notation');
@@ -77,7 +77,6 @@ export default function GreatOctavePage() {
   const goodJobMessageRef = useRef(null);
   const wellDoneMessageRef = useRef(null);
   const oopsMessageRef = useRef(null);
-  const timeIsUpMessageRef = useRef(null);
 
   const randint = (x) => {
     return Math.floor(Math.random() * (x + 1));
@@ -97,45 +96,14 @@ export default function GreatOctavePage() {
     ref.current.classList.remove('hidden');
   }
 
-  const startingMinutes = 1;
-  let time = startingMinutes * 60;
-
-  let [count, setCount] = useState(0);
-  const forceUpdate = () => {
-    setCount(count => count + 1);
-  }
-
-  const updateTimer = () => {
-    if (!timerRef.current) {
-      return;
-    }
-
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-
-    if (minutes == 0 && seconds == 0) {
-      timerRef.current.innerText = '0:00';
-      timeIsUpMessageRef.current.classList.remove('hidden');
-      forceUpdate();
-      return;
-    }
-
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    timerRef.current.innerText = minutes + ':' + seconds;
-    time--;
-  }
-
   let clickedKey;
   let showedNote;
 
-  const showNote = (noteRef, sharpSymbolRef, flatSymbolRef, doubleSharpSymbolRef, doubleFlatSymbolRef, unhideLedgerLine1, unhideLedgerLine2) => {
+  const showNote = (noteRef, sharpSymbolRef, flatSymbolRef, doubleSharpSymbolRef, doubleFlatSymbolRef, unhideLedgerLine) => {
     unhide(noteRef);
 
-    if (unhideLedgerLine1) {
-      unhide(ledgerLine1Ref);
-    }
-    if (unhideLedgerLine2) {
-      unhide(ledgerLine2Ref);
+    if (unhideLedgerLine) {
+      unhide(ledgerLineRef);
     }
     if (mode == 'with-double-sharps-and-double-flats') {
       const randomNumber = Math.random();
@@ -365,6 +333,33 @@ export default function GreatOctavePage() {
     currentNoteRef = noteRef;
   }
 
+  const startingMinutes = 1;
+  let time = startingMinutes * 60;
+  let [count, setCount] = useState(0);
+  const forceUpdate = () => {
+    setCount(count => count + 1);
+  }
+
+  const updateTimer = () => {
+    if (!timerRef.current) {
+      return;
+    }
+
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    if (minutes == 0 && seconds == 0) {
+      timerRef.current.innerText = '0:00';
+      timeIsUpMessageRef.current.classList.remove('hidden');
+      forceUpdate();
+      return;
+    }
+
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    timerRef.current.innerText = minutes + ':' + seconds;
+    time--;
+  }
+
   let correctAnswersRef = useRef(0);
   let incorrectAnswersRef = useRef(0);
 
@@ -375,6 +370,7 @@ export default function GreatOctavePage() {
         unhide(oopsMessageRef);
         hide(wellDoneMessageRef);
         hide(goodJobMessageRef);
+
       } else {
         correctAnswersRef.current += 1;
         const randomNumber = randint(1);
@@ -386,6 +382,7 @@ export default function GreatOctavePage() {
         } else {
           unhide(goodJobMessageRef);
         }
+
       }
     }
     if (currentNoteRef) {
@@ -403,8 +400,7 @@ export default function GreatOctavePage() {
     if (currentDoubleFlatSymbolRef) {
       hide(currentDoubleFlatSymbolRef);
     }
-    hide(ledgerLine1Ref);
-    hide(ledgerLine2Ref);
+    hide(ledgerLineRef);
 
     const randomNumber = randint(6);
 
@@ -419,15 +415,15 @@ export default function GreatOctavePage() {
         break;
       case 2:
         showedNote = 'C4';
-        showNote(cNoteRef, cSharpSymbolRef, cFlatSymbolRef, cDoubleSharpSymbolRef, cDoubleFlatSymbolRef, true, true);
+        showNote(cNoteRef, cSharpSymbolRef, cFlatSymbolRef, cDoubleSharpSymbolRef, cDoubleFlatSymbolRef, true);
         break;
       case 3:
         showedNote = 'D4';
-        showNote(dNoteRef, dSharpSymbolRef, dFlatSymbolRef, dDoubleSharpSymbolRef, dDoubleFlatSymbolRef, true);
+        showNote(dNoteRef, dSharpSymbolRef, dFlatSymbolRef, dDoubleSharpSymbolRef, dDoubleFlatSymbolRef);
         break;
       case 4:
         showedNote = 'E4';
-        showNote(eNoteRef, eSharpSymbolRef, eFlatSymbolRef, eDoubleSharpSymbolRef, eDoubleFlatSymbolRef, true);
+        showNote(eNoteRef, eSharpSymbolRef, eFlatSymbolRef, eDoubleSharpSymbolRef, eDoubleFlatSymbolRef);
         break;
       case 5:
         showedNote = 'F4';
@@ -452,9 +448,9 @@ export default function GreatOctavePage() {
         <span style={{ position: "fixed", top: 0, gap: 24 + "px" }}>
         <h1 style={{ position: "static" }}>Время вышло!</h1>
         <span>
-        
         <Link to='/' className='btn btn-orange' style={{ bottom: 44 + 8 + "px", width: 240 + "px" }}>Вернуться в меню</Link>
         <span id='answers' style={{ position: "fixed", bottom: 0, left: 0, width: 100 + "%" }}>
+        
         <h2 style={{ marginBottom: 0 }}>Правильных ответов: {correctAnswersRef.current}</h2>
         <h2>Неправильных ответов: {incorrectAnswersRef.current}</h2>
         </span>
@@ -488,62 +484,60 @@ export default function GreatOctavePage() {
           </span>
         </span>
         <span id='staff'>
-          <BassClef />
-          <img ref={cNoteRef} src={WholeNote} className='hidden note c2'></img>
-          <img ref={dNoteRef} src={WholeNote} className='hidden note d2'></img>
-          <img ref={eNoteRef} src={WholeNote} className='hidden note e2'></img>
-          <img ref={fNoteRef} src={WholeNote} className='hidden note f2'></img>
-          <img ref={gNoteRef} src={WholeNote} className='hidden note g2'></img>
-          <img ref={aNoteRef} src={WholeNote} className='hidden note a2'></img>
-          <img ref={bNoteRef} src={WholeNote} className='hidden note b2'></img>
-          <img ref={cSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol c2'></img>
-          <img ref={dSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol d2'></img>
-          <img ref={eSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol e2'></img>
-          <img ref={fSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol f2'></img>
-          <img ref={gSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol g2'></img>
-          <img ref={aSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol a2'></img>
-          <img ref={bSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol b2'></img>
-          <img ref={cFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol c2'></img>
-          <img ref={dFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol d2'></img>
-          <img ref={eFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol e2'></img>
-          <img ref={fFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol f2'></img>
-          <img ref={gFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol g2'></img>
-          <img ref={aFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol a2'></img>
-          <img ref={bFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol b2'></img>
-          <img ref={cDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol c2'></img>
-          <img ref={dDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol d2'></img>
-          <img ref={eDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol e2'></img>
-          <img ref={fDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol f2'></img>
-          <img ref={gDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol g2'></img>
-          <img ref={aDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol a2'></img>
-          <img ref={bDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol b2'></img>
-          <img ref={cDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol c2'></img>
-          <img ref={dDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol d2'></img>
-          <img ref={eDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol e2'></img>
-          <img ref={fDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol f2'></img>
-          <img ref={gDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol g2'></img>
-          <img ref={aDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol a2'></img>
-          <img ref={bDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol b2'></img>
+          <TrebleClef />
+          <img ref={cNoteRef} src={WholeNote} className='hidden note c4'></img>
+          <img ref={dNoteRef} src={WholeNote} className='hidden note d4'></img>
+          <img ref={eNoteRef} src={WholeNote} className='hidden note e4'></img>
+          <img ref={fNoteRef} src={WholeNote} className='hidden note f4'></img>
+          <img ref={gNoteRef} src={WholeNote} className='hidden note g4'></img>
+          <img ref={aNoteRef} src={WholeNote} className='hidden note a4'></img>
+          <img ref={bNoteRef} src={WholeNote} className='hidden note b4'></img>
+          <img ref={cSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol c4'></img>
+          <img ref={dSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol d4'></img>
+          <img ref={eSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol e4'></img>
+          <img ref={fSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol f4'></img>
+          <img ref={gSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol g4'></img>
+          <img ref={aSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol a4'></img>
+          <img ref={bSharpSymbolRef} src={SharpSymbol} className='hidden sharp-symbol b4'></img>
+          <img ref={cFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol c4'></img>
+          <img ref={dFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol d4'></img>
+          <img ref={eFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol e4'></img>
+          <img ref={fFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol f4'></img>
+          <img ref={gFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol g4'></img>
+          <img ref={aFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol a4'></img>
+          <img ref={bFlatSymbolRef} src={FlatSymbol} className='hidden flat-symbol b4'></img>
+          <img ref={cDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol c4'></img>
+          <img ref={dDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol d4'></img>
+          <img ref={eDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol e4'></img>
+          <img ref={fDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol f4'></img>
+          <img ref={gDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol g4'></img>
+          <img ref={aDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol a4'></img>
+          <img ref={bDoubleSharpSymbolRef} src={DoubleSharpSymbol} className='hidden double-sharp-symbol b4'></img>
+          <img ref={cDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol c4'></img>
+          <img ref={dDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol d4'></img>
+          <img ref={eDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol e4'></img>
+          <img ref={fDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol f4'></img>
+          <img ref={gDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol g4'></img>
+          <img ref={aDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol a4'></img>
+          <img ref={bDoubleFlatSymbolRef} src={DoubleFlatSymbol} className='hidden double-flat-symbol b4'></img>
           <hr></hr>
           <hr></hr>
           <hr></hr>
           <hr></hr>
-          <hr style={{ transform: "translateX(-20%)" }} ref={ledgerLine1Ref} className='hidden ledger-line' id='ledger-line1'></hr>
-          <hr style={{ transform: "translateX(-20%)" }} ref={ledgerLine2Ref} className='hidden ledger-line' id='ledger-line2'></hr>
+          <hr style={{ transform: "translateX(-20%)" }} ref={ledgerLineRef} className='hidden ledger-line' id='ledger-line'></hr>
         </span>
       </span>
-
       {
         showBtns ? <span ref={btnsRef} className='hidden center' id='btns'>
           <button onClick={function () {
             clickedKey = 'C4';
             handleClick();
-            playSound(C2);
+            playSound(C4);
           }} className='center btn btn-red'>{noteNotation == 'c-d-e' ? 'C' : 'до'}</button>
           <button onClick={function () {
             clickedKey = 'D4';
             handleClick();
-            playSound(D2);
+            playSound(D4);
           }} className='center btn btn-orange'>{noteNotation == 'c-d-e' ? 'D' : 'ре'}</button>
           <button onClick={function () {
             clickedKey = 'E4';
@@ -563,34 +557,34 @@ export default function GreatOctavePage() {
           <button onClick={function () {
             clickedKey = 'A4';
             handleClick();
-            playSound(A2);
+            playSound(A4);
           }} className='center btn btn-blue'>{noteNotation == 'c-d-e' ? 'A' : 'ля'}</button>
           <button onClick={function () {
             clickedKey = 'B4';
             handleClick();
-            playSound(B2);
+            playSound(B4);
           }} className='center btn btn-purple'>{noteNotation == 'c-d-e' ? 'B' : 'си'}</button>
         </span> : <span ref={keyboardRef} className='hidden center' id='keyboard' style={{ left: ((mode != "with-double-sharps-and-double-flats" && mode != "with-sharps" && mode != undefined) ? 76 : 0) / 2 + "px" }}>
           <span id='white-keys' style={{ position: mode == "with-double-sharps-and-double-flats" && "relative", right: mode == "with-double-sharps-and-double-flats" && -70 + "px" }}>
             {mode == 'with-double-sharps-and-double-flats' &&
               <button onMouseDown={function () {
-                playSound(A1);
+                playSound(A3);
                 clickedKey = 'A3';
                 handleClick();
               }} className='key-white' id='key-a-prev-octave'></button>}
             {(mode == 'white-and-black-keys' || mode == 'with-flats' || mode == 'with-sharps-and-flats' || mode == 'with-double-sharps-and-double-flats') &&
-              <button id='key-b1' onMouseDown={function () {
-                playSound(B1);
+              <button id='key-b3' onMouseDown={function () {
+                playSound(B3);
                 clickedKey = 'B3';
                 handleClick();
               }} className='key-white'></button>}
             <button onMouseDown={function () {
-              playSound(C2);
+              playSound(C4);
               clickedKey = 'C4';
               handleClick();
             }} className='key key-white'></button>
             <button onMouseDown={function () {
-              playSound(D2);
+              playSound(D4);
               clickedKey = 'D4';
               handleClick();
             }} className='key key-white'></button>
@@ -610,40 +604,40 @@ export default function GreatOctavePage() {
               handleClick();
             }} className='key key-white'></button>
             <button onMouseDown={function () {
-              playSound(A2);
+              playSound(A4);
               clickedKey = 'A4';
               handleClick();
             }} className='key key-white'></button>
             <button onMouseDown={function () {
-              playSound(B2);
+              playSound(B4);
               clickedKey = 'B4';
               handleClick();
             }} className='key key-white'></button>
             {(mode == 'white-and-black-keys' || mode == 'with-sharps' || mode == 'with-sharps-and-flats' || mode == 'with-double-sharps-and-double-flats') &&
               <button onMouseDown={function () {
-                playSound(C3);
+                playSound(C5);
                 clickedKey = 'C5';
                 handleClick();
               }} className='key-white'></button>}
             {mode == 'with-double-sharps-and-double-flats' &&
               <button onMouseDown={function () {
-                playSound(D3);
+                playSound(D5);
                 clickedKey = 'D5';
                 handleClick();
               }} className='key-white' id='key-d-next-octave'></button>}
           </span>
 
-          <span>
+          <span id='black-keys'>
             {
               mode == 'with-double-sharps-and-double-flats' &&
               <button onMouseDown={function () {
-                playSound(BFlat1);
+                playSound(BFlat3);
                 clickedKey = 'Bb3';
                 handleClick();
               }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='bb-prev-octave'></button>
             }
             <button onMouseDown={function () {
-              playSound(DFlat2);
+              playSound(DFlat4);
               clickedKey = 'Db4';
               handleClick();
             }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='db'></button>
@@ -663,14 +657,14 @@ export default function GreatOctavePage() {
               handleClick();
             }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='ab'></button>
             <button onMouseDown={function () {
-              playSound(BFlat2);
+              playSound(BFlat4);
               clickedKey = 'Bb4';
               handleClick();
             }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='bb'></button>
             {
               mode == 'with-double-sharps-and-double-flats' &&
               <button onMouseDown={function () {
-                playSound(DFlat3);
+                playSound(DFlat5);
                 clickedKey = 'Db5';
                 handleClick();
               }} className={mode == "with-double-sharps-and-double-flats" ? "key-black wdf" : "key-black"} id='db-next-octave'></button>

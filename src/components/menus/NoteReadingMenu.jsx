@@ -1,6 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom';
-import ExitButton from "./ExitButton";
-import TurnYourDeviceMessage2 from "./TurnYourDeviceMessage2";
+import ExitButton from "../ExitButton";
+import TurnYourDeviceMessage from "../TurnYourDeviceMessageLandscape";
 
 export default function NoteReadingPage() {
   const [searchParams] = useSearchParams();
@@ -31,12 +31,12 @@ export default function NoteReadingPage() {
           }
         `}
       </style>
-      <TurnYourDeviceMessage2 />
+      <TurnYourDeviceMessage />
       <h1>Чтение нот</h1>
       <span className="center" id="menu-btns">
         <Link to={getPath()} className="btn btn-blue btn-menu">Белые клавиши</Link>
         <Link to={{
-          pathname: '/mode-selection/note-reading/black-keys',
+          pathname: '/mode/note-reading/black-keys',
           search: octave && '?octave=' + octave,
         }} className="btn btn-green btn-menu"> Чёрные клавиши</Link>
         <Link to={{

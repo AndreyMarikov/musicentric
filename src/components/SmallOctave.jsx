@@ -25,7 +25,7 @@ import SharpSymbol from '../assets/Sharp.svg';
 import FlatSymbol from '../assets/Flat.svg';
 import DoubleSharpSymbol from '../assets/Double_sharp.svg';
 import DoubleFlatSymbol from '../assets/Double_flat.svg';
-import TurnYourDeviceMessage from './TurnYourDeviceMessage';
+import TurnYourDeviceMessage from './TurnYourDeviceMessagePortrait';
 import Kitya from '../assets/kitya.gif';
 
 export default function SmallOctavePage() {

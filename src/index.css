@@ -127,6 +127,16 @@ h2 {
   }
 }
 
+.disabled {
+  opacity: 0.5;
+  filter: brightness(75%);
+}
+
+.disabled:active {
+  margin: 0;
+  margin-top: 0 !important;
+}
+
 @media (max-height: 600px) {
   h1 {
     top: 0 !important;
@@ -458,8 +468,20 @@ h2 {
   box-shadow: 0px 8px 0 var(--red40);
 }
 
+.btn-red.disabled:active {
+  box-shadow: 0px 8px 0 var(--red40);
+}
+
+.btn.disabled:active {
+  margin-bottom: 8px;
+}
+
 .btn-orange {
   background: var(--orange50);
+  box-shadow: 0px 8px 0 var(--orange40);
+}
+
+.btn-orange.disabled:active {
   box-shadow: 0px 8px 0 var(--orange40);
 }
 
@@ -480,6 +502,10 @@ h2 {
 
 .btn-blue {
   background: var(--blue50);
+  box-shadow: 0px 8px 0 var(--blue40);
+}
+
+.btn-blue.disabled:active {
   box-shadow: 0px 8px 0 var(--blue40);
 }
 

@@ -1,8 +1,8 @@
 import { Link, useSearchParams } from 'react-router-dom';
-import ExitButton from "./ExitButton";
-import TurnYourDeviceMessage2 from "./TurnYourDeviceMessage2";
+import ExitButton from "../ExitButton";
+import TurnYourDeviceMessage from "../TurnYourDeviceMessageLandscape";
 
-export default function ModeSelectionPage() {
+export default function ModeMenu() {
   const [searchParams] = useSearchParams();
   const octave = searchParams.get('octave');
 
@@ -35,12 +35,12 @@ export default function ModeSelectionPage() {
           }
         `}
       </style>
-      <TurnYourDeviceMessage2 />
+      <TurnYourDeviceMessage />
       <h1>Выберите режим</h1>
       <span className="center" id="menu-btns">
-        <Link to={'/note-notation-selection?octave=' + octave} className="btn btn-orange btn-menu">Разминка</Link>
+        <Link to={'/note-notation?octave=' + octave} className="btn btn-orange btn-menu">Разминка</Link>
         <Link to={{
-          pathname: '/mode-selection/note-reading',
+          pathname: '/mode/note-reading',
           search: octave && '?octave=' + octave,
         }} className="btn btn-red btn-menu">Чтение нот</Link>
         <ExitButton />
