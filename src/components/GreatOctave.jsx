@@ -27,6 +27,8 @@ import DoubleSharpSymbol from '../assets/Double_sharp.svg';
 import DoubleFlatSymbol from '../assets/Double_flat.svg';
 import TurnYourDeviceMessage from './TurnYourDeviceMessagePortrait';
 import Kitya from '../assets/kitya.gif';
+import Music from '../assets/praia-de-domingo.mp3';
+import Ambience from '../assets/forest-ambience.mp3';
 
 export default function GreatOctavePage() {
   const btnsRef = useRef(null);
@@ -447,6 +449,15 @@ export default function GreatOctavePage() {
 
   return (
     <>
+      <style>
+        {`
+          @media (max-height: 635px) {
+            body {
+              background-image: none;
+            }
+          }
+        `}
+      </style>
       <TurnYourDeviceMessage />
       <span ref={timeIsUpMessageRef} className='hidden warning-message center'>
         <span style={{ position: "fixed", top: 0, gap: 24 + "px" }}>

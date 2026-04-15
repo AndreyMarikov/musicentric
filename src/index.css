@@ -23,7 +23,7 @@
   --orange50: hsl(30, 100%, 59%);
   --orange60: hsl(30, 100%, 60%);
   --orange65: hsl(30, 100%, 65%);
-  --yellow40: hsl(50, 100%, 40%);
+  --yellow40: hsl(50, 100%, 45%);
   --yellow50: hsl(50, 100%, 50%);
   --yellow70: hsl(50, 100%, 70%);
   --yellow80: hsl(50, 100%, 80%);
@@ -118,9 +118,6 @@ h2 {
 }
 
 @media (max-height: 635px) {
-  body {
-    background-image: none;
-  }
 
   #menu-btns {
     height: 100%;
@@ -135,12 +132,6 @@ h2 {
 .disabled:active {
   margin: 0;
   margin-top: 0 !important;
-}
-
-@media (max-height: 600px) {
-  h1 {
-    top: 0 !important;
-  }
 }
 
 #btns button {
@@ -1231,4 +1222,40 @@ h2 {
 
 h2:last-child {
   margin-bottom: 32px;
+}
+
+.btn-secondary {
+  min-width: 300px;
+  box-shadow: 0 4px 0 hsl(0, 0%, 90%);
+  color: hsl(0, 0%, 60%);
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 4px;
+  border: 3px solid hsl(0, 0%, 90%);
+  background: none;
+}
+
+.btn-secondary:active {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.force-update-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.rocket {
+  width: 50%;
 }

@@ -9,6 +9,10 @@ export default function OctaveMenu() {
           #root {
             justify-content: end !important;
           }
+
+          .overlay {
+
+          }
         `}
       </style>
       <TurnYourDeviceMessage />

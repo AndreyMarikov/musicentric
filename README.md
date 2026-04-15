@@ -1,4 +1,4 @@
-# Musicentric
+# Pianify
 
 A music app aimed at piano students to improve their sight-reading ability.
 Note: the app interface is in Russian since it was made for a local tutor and their students.
@@ -13,7 +13,7 @@ At the moment, the mascot only contains a blinking animation, but I'm planning t
 I'm also planning to make the mascot emit sounds.
 The sprite and animation for the mascot were made by me.
 # Demo
-[Link to the app](https://andreymarikov.github.io/musicentric/)
+[Link to the app](https://andreymarikov.github.io/musicentric-v2/)
 # Screenshots
 ![Screenshot 1](./screenshots/screenshot_1.png)
 

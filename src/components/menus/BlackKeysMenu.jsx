@@ -29,6 +29,28 @@ export default function BlackKeysMenu() {
           #root {
             justify-content: end !important;
           }
+
+          @media (max-height: 670px) {
+            body{
+              background-image: none;
+            }
+
+            h1 {
+              top: 64px !important;
+            }
+          }
+          
+          @media (max-height: 625px) {
+            h1 {
+              top: 32px !important;
+            }
+          }
+          
+          @media (max-height: 600px) {
+            h1 {
+              top: 16px !important;
+            }
+          }
         `}
       </style>
       <TurnYourDeviceMessage />

@@ -13,6 +13,38 @@ import SmallOctave from './components/SmallOctave';
 import OneLineOctave from './components/OneLineOctave';
 import TwoLineOctave from './components/TwoLineOctave';
 import PricingPage from './components/PricingPage';
+import LoginPage from './components/auth/LoginPage';
+import SignUpPage from './components/auth/SignUpPage';
+import { supabase } from "./utils/supabase";
+import { version as appVersion } from "../package.json";
+import semver from "semver";
+import ForceUpdateScreen from './components/ForceUpdateScreen';
+import UpdateNotification from "./components/UpdateNotification";
+
+await supabase.auth.signInAnonymously();
+const { data: { user } } = await supabase.auth.getUser();
+await supabase.from("users").insert({
+  user_id: user.id,
+}).then(({ data, error }) => {
+  console.log(error);
+});
+
+/*
+const { data: { session } } = await supabase.auth.getSession();
+console.log("SESSION:", session);
+await fetch("https://mrygoukdalzpppcocgqp.supabase.co/functions/v1/get-subscription", {
+  method: "POST",
+  body: JSON.stringify({
+    user_id: user.id
+  }),
+  headers: {
+    Authorization: `Bearer ${session.access_token}`,
+    "Content-Type": "application/json",
+  }
+}).then(data => {
+  console.log(data);
+});
+*/
 
 const router = createHashRouter([
   {
@@ -56,6 +88,14 @@ const router = createHashRouter([
     path: '/pricing',
     element: <PricingPage />,
   },
+  {
+    path: '/signup',
+    element: <SignUpPage />
+  },
+  {
+    path: '/login',
+    element: <LoginPage />
+  },
   */
   {
     path: '*',
@@ -63,8 +103,21 @@ const router = createHashRouter([
   }
 ])
 
+let minVersion;
+let latestVersion;
+await supabase.from("app_config").select("*").then(({ data, error }) => {
+  if (error) console.log(error);
+  minVersion = data[0]["min_version"];
+  latestVersion = data[0]["latest_version"];
+});
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    {
+      semver.lt(appVersion, minVersion) ?
+        <ForceUpdateScreen /> :
+        (semver.lt(appVersion, latestVersion) && <UpdateNotification />)
+    }
     <RouterProvider router={router} />
   </StrictMode>,
 )

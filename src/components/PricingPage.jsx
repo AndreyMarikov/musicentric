@@ -97,6 +97,10 @@ function Pricing() {
             box-shadow: 0px 0px 105px 45px rgba(255,0,255,0.2);
           }
 
+          .card.premium .title .btn {
+            box-shadow: 0 6px 0 hsl(0, 0%, 90%);
+          }
+
           .card .title {
             background: gray;
             margin: 0;
@@ -197,7 +201,7 @@ function Pricing() {
             text-align: center;
             background-color: hsl(0, 0%, 90%);
             color: hsl(0, 0%, 40%);
-            box-shadow: 0 6px 0 hsl(0, 0%, 80%);
+            box-shadow: 0 6px 0 hsl(0, 0%, 85%);
             margin-bottom: 6px;
             font-size: 20px;
           }
@@ -242,8 +246,8 @@ function Pricing() {
       </style>
       <span>
         <img className="bg" src={Bg}></img>
-        <h1 style={{ color: "var(--white)" }}>Освойте фортепианные ноты во всех октавах.</h1>
-        <p style={{ color: "var(--white)" }}>Изучите основы <b>бесплатно</b>. С <b className="highlighted-text">Premium</b>-подпиской вы сможете играть более чем на одну октаву.</p>
+        <h1 style={{ color: "var(--white)" }}>Освойте ноты всех октав фортепиано.</h1>
+        <p style={{ color: "var(--white)" }}>Изучите первую октаву <b>бесплатно</b>. С <b className="highlighted-text">Premium</b>-подпиской вы освоите четыре октавы.</p>
       </span>
       <span className="card free">
         <span className="title">
