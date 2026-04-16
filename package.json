@@ -13,6 +13,11 @@
     "deploy": "gh-pages -d docs"
   },
   "dependencies": {
+    "@capacitor/android": "^8.3.0",
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.3.0",
+    "@capacitor/core": "^8.3.0",
+    "@capacitor/ios": "^8.3.0",
     "@react-oauth/google": "^0.13.5",
     "@supabase/supabase-js": "^2.103.0",
     "bootstrap-icons": "^1.13.1",
