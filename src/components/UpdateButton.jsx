@@ -7,7 +7,7 @@ function UpdateButton() {
     const button = btnRef.current;
 
     function updateApp() {
-      window.location.href = window.location.origin + "?update=" + Date.now();
+      window.location.href = "https://andreymarikov.github.io/musicentric-v2/" + "?update=" + Date.now();
     }
 
     button.addEventListener("click", updateApp);
