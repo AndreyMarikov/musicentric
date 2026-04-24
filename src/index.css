@@ -87,6 +87,17 @@ h1 {
   display: none;
 }
 
+@media screen and (max-height: 330px) {
+  #btns {
+    position: absolute !important;
+    bottom: 64px !important;
+  }
+
+  #staff-wrapper {
+    margin: 0 !important;
+  }
+}
+
 hr {
   border: none;
   border-top: var(--border);
