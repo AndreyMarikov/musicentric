@@ -447,10 +447,8 @@ export default function OneLineOctavePage() {
     <>
       <style>
         {`
-          @media (max-height: 635px) {
-            body {
-              background-image: none;
-            }
+          body {
+            background-image: none;
           }
         `}
       </style>

@@ -33,11 +33,18 @@ export default function ModeMenu() {
           #root {
             justify-content: end !important;
           }
+
+          @media (min-height: 950px) {
+            h1 {
+              position: static;
+              margin-top: 0;
+            }
+          }
         `}
       </style>
       <TurnYourDeviceMessage />
-      <h1>Выберите режим</h1>
       <span className="center" id="menu-btns">
+        <h1>Выберите режим</h1>
         <Link to={'/note-notation?octave=' + octave} className="btn btn-orange btn-menu">Разминка</Link>
         <Link to={{
           pathname: '/mode/note-reading',

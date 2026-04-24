@@ -10,30 +10,33 @@ export default function OctaveMenu() {
             justify-content: end !important;
           }
 
-          .overlay {
-
+          @media (min-height: 950px) {
+            h1 {
+              position: static;
+              margin-top: 0;
+            }
           }
         `}
       </style>
       <TurnYourDeviceMessage />
-      <h1>Выберите октаву</h1>
       <span className='center' id='menu-btns'>
+        <h1>Выберите октаву</h1>
         <Link to={{
           pathname: '/mode',
           search: '?octave=one-line'
-        }} className="btn btn-green btn-menu">Первая октава 𝄞</Link>
+        }} className="btn btn-green btn-menu"><p style={{ position: "absolute" }}>&#x1D11E;</p>Первая октава<div></div></Link>
         <Link to={{
           pathname: '/mode',
           search: '?octave=two-line'
-        }} className="btn btn-orange btn-menu">Вторая октава 𝄞</Link>
+        }} className="btn btn-orange btn-menu"><p style={{ position: "absolute" }}>&#x1D11E;</p>Вторая октава<div></div></Link>
         <Link to={{
           pathname: '/mode',
           search: '?octave=small'
-        }} className="btn btn-blue btn-menu">Малая октава 𝄢</Link>
+        }} className="btn btn-blue btn-menu"><p style={{ position: "absolute" }}>&#119074;</p>Малая октава<div></div></Link>
         <Link to={{
           pathname: '/mode',
           search: '?octave=great'
-        }} className="btn btn-red btn-menu">Большая октава 𝄢</Link>
+        }} className="btn btn-red btn-menu"><p style={{ position: "absolute" }}>&#119074;</p>Большая октава<div></div></Link>
       </span>
     </>
   );

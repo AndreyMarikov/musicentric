@@ -51,30 +51,39 @@ export default function BlackKeysMenu() {
               top: 16px !important;
             }
           }
+
+          @media (min-height: 950px) {
+            h1 {
+              position: static;
+              margin-top: 0;
+              margin-bottom: 32px !important;
+            }
+          }
         `}
       </style>
       <TurnYourDeviceMessage />
-      <h1 style={{ margin: 0, top: 86 + "px" }}>Чёрные клавиши</h1>
       <span className="center" id="menu-btns">
+        <h1 style={{ margin: 0, top: 86 + "px" }}>Чёрные клавиши</h1>
         <Link to={{
           pathname: getPath(),
           search: '?mode=with-sharps',
-        }} className="btn btn-cyan btn-menu">Диезы ♯</Link>
+        }} className="btn btn-cyan btn-menu"><p style={{ position: "absolute" }}>♯</p>Диезы</Link>
         <Link to={{
           pathname: getPath(),
           search: '?mode=with-flats',
-        }} className="btn btn-purple btn-menu">Бемоли ♭</Link>
+        }} className="btn btn-purple btn-menu"><p style={{ position: "absolute", fontSize: 28 + "px" }}>♭</p>Бемоли</Link>
         <Link to={{
           pathname: getPath(),
           search: '?mode=with-sharps-and-flats',
-        }} className="btn btn-red btn-menu">Диезы ♯<br></br>и бемоли ♭</Link>
+        }} className="btn btn-red btn-menu" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}><p style={{ position: "absolute", left: 24 + "px", fontSize: 24 + "px" }}><p style={{ fontSize: 28 + "px", display: "inline" }}>♭</p> ♯</p>Диезы<br></br>и бемоли</Link>
         <Link to={{
           pathname: getPath(),
           search: '?mode=with-double-sharps-and-double-flats',
-        }} className="btn btn-green btn-menu">
-          Дубль-диезы 𝄪
+        }} className="btn btn-green btn-menu" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <p style={{ position: "absolute", left: 24 + "px", fontSize: 24 + "px" }}>𝄫 <p style={{ fontSize: 32 + "px", display: "inline" }}>𝄪</p></p>
+          Дубль-диезы
           <br></br>
-          и дубль-бемоли 𝄫
+          и дубль-бемоли
         </Link>
         <ExitButton />
       </span>

@@ -62,6 +62,8 @@ body {
 
 h1 {
   margin-top: 86px;
+  display: block;
+  inline-size: min-content;
 }
 
 #root {
@@ -143,7 +145,6 @@ h2 {
 }
 
 #staff {
-  width: 100%;
   position: relative;
   top: 0px;
   border: var(--border);
@@ -151,6 +152,7 @@ h2 {
   margin-bottom: 150px;
   z-index: 6;
   transform: translateY(30px);
+  max-width: 400px;
 }
 
 #staff>hr {
@@ -654,7 +656,6 @@ h2 {
 }
 
 #staff {
-  max-width: 465px !important;
   width: 100%;
 }
 
@@ -724,7 +725,7 @@ h2 {
   width: 150px;
   height: 50px;
   top: -10px;
-  left: 90px;
+  left: 100%;
   border-radius: 10px;
   font-size: 24px;
   font-weight: bold;
@@ -734,8 +735,10 @@ h2 {
 .message::before {
   content: "";
   border-radius: 9999px;
-  width: 10px;
-  height: 10px;
+  width: 26px;
+  height: 26px;
+  left: 10px;
+  top: 60px;
   background: hsl(0, 0%, 97%);
   outline: 3px solid hsl(0, 0%, 85%);
   transform: translate(-60px, -50px);
@@ -1028,6 +1031,13 @@ h2 {
   }
 }
 
+.message {
+  position: absolute;
+  width: 150px;
+  height: 70px;
+  left: 100%;
+}
+
 @media (max-height: 750px) {
   .note {
     left: 57%;
@@ -1046,7 +1056,10 @@ h2 {
     position: absolute;
     background-color: hsl(0, 0%, 97%);
     border-radius: 10px;
-    left: 154%;
+    top: -15%;
+    left: 100%;
+    width: 140px;
+    height: 50px;
   }
 
   .message::before {
@@ -1058,6 +1071,8 @@ h2 {
     position: absolute;
     top: 60px;
     left: 20px;
+    width: 10px;
+    height: 10px;
   }
 }
 
@@ -1069,9 +1084,22 @@ h2 {
   .note {
     transform: translateX(-90%);
   }
+
+  .message {
+    left: 110%;
+  }
 }
 
-@media (max-height: 440px) {
+
+.message::after {
+  display: block;
+}
+
+.message::before {
+  display: block;
+}
+
+@media (max-height: 500px) {
   .cat-image {
     height: 250px;
   }
@@ -1080,12 +1108,9 @@ h2 {
     transform: translateX(-100%);
   }
 
-  .message::after {
-    display: block;
-  }
-
-  .message::before {
-    display: block;
+  .message {
+    left: 140%;
+    top: -5%;
   }
 }
 
@@ -1096,6 +1121,7 @@ h2 {
   }
 
   .message {
+    left: 150%;
     top: -14px;
   }
 
@@ -1177,7 +1203,7 @@ h2 {
   margin-top: 24px;
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (max-height: 700px) {
   .warning-message h1 {
     margin-top: 14px;
   }
@@ -1194,6 +1220,26 @@ h2 {
   #turn-your-device-message2 {
     display: flex;
     height: 100%;
+  }
+}
+
+@media (min-height: 950px) {
+  #menu-btns {
+    border-radius: 32px;
+    max-width: 450px !important;
+    min-width: 0px;
+    width: 100%;
+    padding: 32px;
+    margin: 0;
+  }
+
+  body {
+    background-position-y: 25%;
+  }
+
+  body>#root {
+    padding: 32px;
+    justify-content: center !important;
   }
 }
 

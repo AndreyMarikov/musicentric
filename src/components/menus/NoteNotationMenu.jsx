@@ -29,11 +29,18 @@ export default function NoteNotationMenu() {
           #root {
             justify-content: end !important;
           }
+
+          @media (min-height: 950px) {
+            h1 {
+              position: static;
+              margin-top: 0;
+            }
+          }
         `}
       </style>
       <TurnYourDeviceMessage />
-      <h1>Выберите обозначение нот</h1>
       <span id='menu-btns' className='center'>
+        <h1>Выберите обозначение нот</h1>
         <Link to={getPath() + '?mode=warm-up&note-notation=c-d-e'} className='btn btn-cyan btn-menu'>C-D-E</Link>
         <Link to={getPath() + '?mode=warm-up&note-notation=do-re-mi'} className='btn btn-orange btn-menu'>до-ре-ми</Link>
         <ExitButton />

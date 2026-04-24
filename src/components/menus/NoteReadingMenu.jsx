@@ -29,11 +29,18 @@ export default function NoteReadingPage() {
           #root {
             justify-content: end !important;
           }
+
+          @media (min-height: 950px) {
+            h1 {
+              position: static;
+              margin-top: 0;
+            }
+          }
         `}
       </style>
       <TurnYourDeviceMessage />
-      <h1>Чтение нот</h1>
       <span className="center" id="menu-btns">
+        <h1>Чтение нот</h1>
         <Link to={getPath()} className="btn btn-blue btn-menu">Белые клавиши</Link>
         <Link to={{
           pathname: '/mode/note-reading/black-keys',
