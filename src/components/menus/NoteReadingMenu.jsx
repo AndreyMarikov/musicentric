@@ -36,6 +36,22 @@ export default function NoteReadingPage() {
               margin-top: 0;
             }
           }
+
+          @media (max-height: 590px) {
+            body {
+              background-image: none;
+            }
+
+            h1 {
+              margin-top: 32px;
+            }
+          }
+
+          @media (max-height: 520px) {
+            h1 {
+              margin-top: 16px;
+            }
+          }
         `}
       </style>
       <TurnYourDeviceMessage />

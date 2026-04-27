@@ -1316,3 +1316,59 @@ h2:last-child {
 .rocket {
   width: 50%;
 }
+
+/*
+@media (max-width: 785px) {
+  .key-white {
+    height: 100px;
+    width: 54px;
+  }
+
+
+
+  .key-black#db {
+    left: 54px;
+  }
+
+  .key-black#eb {
+    left: calc(54px * 2);
+  }
+
+  .key-black#gb {
+    left: calc(54px * 4);
+  }
+
+  .key-black#ab {
+    left: calc(54px * 5);
+  }
+
+  .key-black#bb {
+    left: calc(54px * 6);
+  }
+
+  .key-black#bb-prev-octave {
+    left: calc(54px * -1);
+  }
+
+  .key-black#db-next-octave {
+    left: calc(54px * 8);
+  }
+
+  #key-b4,
+  #key-b3,
+  #key-b2,
+  #key-b1 {
+    position: absolute;
+    left: -54px;
+  }
+
+  #key-a-prev-octave {
+    left: calc(54px * -2);
+  }
+
+  .key-black {
+    width: 42px;
+    height: 66px;
+  }
+}
+*/

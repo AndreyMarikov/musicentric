@@ -450,11 +450,13 @@ export default function OneLineOctavePage() {
           body {
             background-image: none;
           }
+
+          
         `}
       </style>
       <TurnYourDeviceMessage />
       <span ref={timeIsUpMessageRef} className='hidden warning-message center'>
-        <span style={{ position: "fixed", top: 0, gap: 24 + "px" }}>
+        <span style={{ position: "fixed", top: 0, gap: 24 + "px", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <h1 style={{ position: "static" }}>Время вышло!</h1>
         <span>
         <Link to='/' className='btn btn-orange' style={{ bottom: 44 + 8 + "px", width: 240 + "px" }}>Вернуться в меню</Link>

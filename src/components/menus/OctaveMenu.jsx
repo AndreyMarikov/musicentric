@@ -16,6 +16,16 @@ export default function OctaveMenu() {
               margin-top: 0;
             }
           }
+
+          @media (max-height: 530px) {
+            body {
+              background-image: none;
+            }
+
+            h1 {
+              margin-top: 32px;
+            }
+          }
         `}
       </style>
       <TurnYourDeviceMessage />
