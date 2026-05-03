@@ -1,7 +1,7 @@
 {
   "name": "pianify",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "homepage": "https://andreymarikov.github.io/musicentric-v2/",
   "scripts": {
