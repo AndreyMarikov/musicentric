@@ -10,7 +10,8 @@ export default function NoteReadingPage() {
   const language = searchParams.get('lang');
 
   useEffect(() => {
-    setSearchParams({ lang: localStorage.getItem("lang") }, { replace: true });
+    searchParams.set("lang", localStorage.getItem("lang"));
+    setSearchParams(searchParams, { replace: true });
   }, []);
 
   const getPath = () => {
