@@ -18,6 +18,7 @@ function LoginPage() {
             margin-top: 0;
             margin-bottom: 28px;
             hyphens: auto;
+            min-width: 100%;
           }
           
           p {
@@ -54,7 +55,9 @@ function LoginPage() {
           logo_alignment="center"
           width={270} />
         */}
+        {/*
         <CustomGoogleLoginButton text="signin" />
+        */}
         <p>У вас нет аккаунта? <Link to="/signup">Зарегистрируйтесь</Link></p>
       </span>
     </>

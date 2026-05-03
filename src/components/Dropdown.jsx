@@ -83,7 +83,7 @@ function Dropdown() {
 
           .dropdown-menu {
             position: fixed;
-            top: 6px;
+            top: -4px;
             right: 16px;
             background: var(--white);
             display: flex;
@@ -91,7 +91,7 @@ function Dropdown() {
             border-radius: 16px;
             outline: 3px solid hsl(0, 0%, 85%);
             transition: 0.2s opacity, transform 0.2s, rotate 0.2s;
-            transform: translateY(50%);
+            transform: translateY(calc(50% + 12px));
             rotate: x 90deg;
           }
 

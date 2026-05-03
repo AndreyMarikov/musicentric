@@ -2,6 +2,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 import TurnYourDeviceMessage from "../TurnYourDeviceMessageLandscape";
 import Dropdown from '../Dropdown';
 import { useEffect } from 'react';
+import Footer from '../Footer';
 
 if (!localStorage.getItem("lang")) {
   localStorage.setItem("lang", "english");
