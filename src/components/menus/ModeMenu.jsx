@@ -1,10 +1,17 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import ExitButton from "../ExitButton";
 import TurnYourDeviceMessage from "../TurnYourDeviceMessageLandscape";
+import Dropdown from '../Dropdown';
+import { useEffect } from 'react';
 
 export default function ModeMenu() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const octave = searchParams.get('octave');
+  const language = searchParams.get('lang');
+
+  useEffect(() => {
+    setSearchParams({ lang: localStorage.getItem("lang") }, { replace: true });
+  }, []);
 
   const getPath = (queryString) => {
     let path;
@@ -43,13 +50,14 @@ export default function ModeMenu() {
         `}
       </style>
       <TurnYourDeviceMessage />
+      <Dropdown />
       <span className="center" id="menu-btns">
-        <h1>Выберите режим</h1>
-        <Link to={'/note-notation?octave=' + octave} className="btn btn-orange btn-menu">Разминка</Link>
+        <h1>{language == "russian" ? "Выберите режим" : "Choose mode"}</h1>
+        <Link to={'/note-notation?octave=' + octave + "&lang=" + language} className="btn btn-orange btn-menu">{language == "russian" ? "Разминка" : "Warm-up"}</Link>
         <Link to={{
           pathname: '/mode/note-reading',
-          search: octave && '?octave=' + octave,
-        }} className="btn btn-red btn-menu">Чтение нот</Link>
+          search: octave && '?octave=' + octave + "&lang=" + language,
+        }} className="btn btn-red btn-menu">{language == "russian" ? "Чтение нот" : "Sight-reading"}</Link>
         <ExitButton />
       </span>
     </>

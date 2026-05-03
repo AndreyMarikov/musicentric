@@ -1,7 +1,20 @@
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import TurnYourDeviceMessage from "../TurnYourDeviceMessageLandscape";
+import Dropdown from '../Dropdown';
+import { useEffect } from 'react';
+
+if (!localStorage.getItem("lang")) {
+  localStorage.setItem("lang", "english");
+}
 
 export default function OctaveMenu() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const language = searchParams.get('lang');
+
+  useEffect(() => {
+    setSearchParams({ lang: localStorage.getItem("lang") }, { replace: true });
+  }, []);
+
   return (
     <>
       <style>
@@ -26,27 +39,30 @@ export default function OctaveMenu() {
               margin-top: 32px;
             }
           }
+
+          
         `}
       </style>
       <TurnYourDeviceMessage />
+      <Dropdown />
       <span className='center' id='menu-btns'>
-        <h1>Выберите октаву</h1>
+        <h1>{language == "russian" ? "Выберите октаву" : "Choose octave"}</h1>
         <Link to={{
           pathname: '/mode',
-          search: '?octave=one-line'
-        }} className="btn btn-green btn-menu"><p style={{ position: "absolute" }}>&#x1D11E;</p>Первая октава<div></div></Link>
+          search: '?octave=one-line&lang=' + language
+        }} className="btn btn-green btn-menu"><p style={{ position: "absolute" }}>&#x1D11E;</p>{language == "english" ? "One-line octave" : "Первая октава"}<div></div></Link>
         <Link to={{
           pathname: '/mode',
-          search: '?octave=two-line'
-        }} className="btn btn-orange btn-menu"><p style={{ position: "absolute" }}>&#x1D11E;</p>Вторая октава<div></div></Link>
+          search: '?octave=two-line&lang=' + language
+        }} className="btn btn-orange btn-menu"><p style={{ position: "absolute" }}>&#x1D11E;</p>{language == "english" ? "Two-line octave" : "Вторая октава"}<div></div></Link>
         <Link to={{
           pathname: '/mode',
-          search: '?octave=small'
-        }} className="btn btn-blue btn-menu"><p style={{ position: "absolute" }}>&#119074;</p>Малая октава<div></div></Link>
+          search: '?octave=small&lang=' + language
+        }} className="btn btn-blue btn-menu"><p style={{ position: "absolute" }}>&#119074;</p>{language == "english" ? "Small octave" : "Малая октава"}<div></div></Link>
         <Link to={{
           pathname: '/mode',
-          search: '?octave=great'
-        }} className="btn btn-red btn-menu"><p style={{ position: "absolute" }}>&#119074;</p>Большая октава<div></div></Link>
+          search: '?octave=great&lang=' + language
+        }} className="btn btn-red btn-menu"><p style={{ position: "absolute" }}>&#119074;</p>{language == "english" ? "Great octave" : "Большая октава"}<div></div></Link>
       </span>
     </>
   );

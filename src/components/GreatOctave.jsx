@@ -447,6 +447,8 @@ export default function GreatOctavePage() {
     audio.play();
   }
 
+  const language = searchParams.get("lang");
+
   return (
     <>
       <style>
@@ -461,13 +463,13 @@ export default function GreatOctavePage() {
       <TurnYourDeviceMessage />
       <span ref={timeIsUpMessageRef} className='hidden warning-message center'>
         <span style={{ position: "fixed", top: 0, gap: 24 + "px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <h1 style={{ position: "static" }}>Время вышло!</h1>
+        <h1 style={{ position: "static" }}>{language == "russian" ? "Время вышло" : "Time is up"}!</h1>
         <span>
         
-        <Link to='/' className='btn btn-orange' style={{ bottom: 44 + 8 + "px", width: 240 + "px" }}>Вернуться в меню</Link>
+        <Link to='/' className='btn btn-orange' style={{ bottom: 44 + 8 + "px", width: 240 + "px" }}>{language == "russian" ? "Вернуться в меню" : "Go back to menu"}</Link>
         <span id='answers' style={{ position: "fixed", bottom: 0, left: 0, width: 100 + "%" }}>
-        <h2 style={{ marginBottom: 0 }}>Правильных ответов: {correctAnswersRef.current}</h2>
-        <h2>Неправильных ответов: {incorrectAnswersRef.current}</h2>
+        <h2 style={{ marginBottom: 0 }}>{language == "russian" ? "Правильных ответов" : "Correct answers"}: {correctAnswersRef.current}</h2>
+        <h2>{language == "russian" ? "Неправильных ответов" : "Incorrect answers"}: {incorrectAnswersRef.current}</h2>
         </span>
         </span>
         </span>
@@ -489,13 +491,13 @@ export default function GreatOctavePage() {
         <span style={{ "position": "relative" }}>
           <img className="cat-image" src={Kitya}></img>
           <span ref={oopsMessageRef} className='message center hidden' id='message1'>
-            Упс...
+            {language == "russian" ? "Упс" : "Whoops"}...
           </span>
           <span ref={goodJobMessageRef} className='message center hidden' id='message2'>
-            Так держать!
+            {language == "russian" ? "Так держать" : "Keep it up"}!
           </span>
           <span ref={wellDoneMessageRef} className='message center hidden' id='message3'>
-            Молодец!
+            {language == "russian" ? "Молодец" : "Well done"}!
           </span>
         </span>
         <span id='staff'>
@@ -550,37 +552,37 @@ export default function GreatOctavePage() {
             clickedKey = 'C4';
             handleClick();
             playSound(C2);
-          }} className='center btn btn-red'>{noteNotation == 'c-d-e' ? 'C' : 'до'}</button>
+          }} className='center btn btn-red'>{noteNotation == 'c-d-e' ? 'C' : (language == "russian" ? "до" : "do")}</button>
           <button onClick={function () {
             clickedKey = 'D4';
             handleClick();
             playSound(D2);
-          }} className='center btn btn-orange'>{noteNotation == 'c-d-e' ? 'D' : 'ре'}</button>
+          }} className='center btn btn-orange'>{noteNotation == 'c-d-e' ? 'D' : (language == "russian" ? "ре" : "re")}</button>
           <button onClick={function () {
             clickedKey = 'E4';
             handleClick();
             playSound(E);
-          }} className='center btn btn-yellow'>{noteNotation == 'c-d-e' ? 'E' : 'ми'}</button>
+          }} className='center btn btn-yellow'>{noteNotation == 'c-d-e' ? 'E' : (language == "russian" ? "ми" : "mi")}</button>
           <button onClick={function () {
             clickedKey = 'F4';
             handleClick();
             playSound(F);
-          }} className='center btn btn-green'>{noteNotation == 'c-d-e' ? 'F' : 'фа'}</button>
+          }} className='center btn btn-green'>{noteNotation == 'c-d-e' ? 'F' : (language == "russian" ? "фа" : "fa")}</button>
           <button onClick={function () {
             clickedKey = 'G4';
             handleClick();
             playSound(G);
-          }} className='center btn btn-cyan'>{noteNotation == 'c-d-e' ? 'G' : 'соль'}</button>
+          }} className='center btn btn-cyan'>{noteNotation == 'c-d-e' ? 'G' : (language == "russian" ? "соль" : "sol")}</button>
           <button onClick={function () {
             clickedKey = 'A4';
             handleClick();
             playSound(A2);
-          }} className='center btn btn-blue'>{noteNotation == 'c-d-e' ? 'A' : 'ля'}</button>
+          }} className='center btn btn-blue'>{noteNotation == 'c-d-e' ? 'A' : (language == "russian" ? "ля" : "la")}</button>
           <button onClick={function () {
             clickedKey = 'B4';
             handleClick();
             playSound(B2);
-          }} className='center btn btn-purple'>{noteNotation == 'c-d-e' ? 'B' : 'си'}</button>
+          }} className='center btn btn-purple'>{noteNotation == 'c-d-e' ? 'B' : (language == "russian" ? "си" : "ti")}</button>
         </span> : <span ref={keyboardRef} className='hidden center' id='keyboard' style={{ left: ((mode != "with-double-sharps-and-double-flats" && mode != "with-sharps" && mode != undefined) ? 76 : 0) / 2 + "px" }}>
           <span id='white-keys' style={{ position: mode == "with-double-sharps-and-double-flats" && "relative", right: mode == "with-double-sharps-and-double-flats" && -70 + "px" }}>
             {mode == 'with-double-sharps-and-double-flats' &&
@@ -702,7 +704,7 @@ export default function GreatOctavePage() {
 
         handleClick();
       }}>
-        начать
+        {language == "russian" ? "Начать" : "Start"}
       </button>
     </>
   );

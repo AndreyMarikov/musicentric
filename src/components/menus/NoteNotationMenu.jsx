@@ -1,10 +1,17 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import ExitButton from "../ExitButton";
 import TurnYourDeviceMessage from "../TurnYourDeviceMessageLandscape";
+import Dropdown from '../Dropdown';
+import { useEffect } from 'react';
 
 export default function NoteNotationMenu() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const octave = searchParams.get('octave');
+  const language = searchParams.get("lang");
+
+  useEffect(() => {
+    setSearchParams({ lang: localStorage.getItem("lang") }, { replace: true });
+  }, []);
 
   const getPath = () => {
     let path;
@@ -39,10 +46,11 @@ export default function NoteNotationMenu() {
         `}
       </style>
       <TurnYourDeviceMessage />
+      <Dropdown />
       <span id='menu-btns' className='center'>
-        <h1>Выберите обозначение нот</h1>
-        <Link to={getPath() + '?mode=warm-up&note-notation=c-d-e'} className='btn btn-cyan btn-menu'>C-D-E</Link>
-        <Link to={getPath() + '?mode=warm-up&note-notation=do-re-mi'} className='btn btn-orange btn-menu'>до-ре-ми</Link>
+        <h1>{language == "russian" ? "Выберите обозначение нот" : "Choose notation system"}</h1>
+        <Link to={getPath() + '?mode=warm-up&note-notation=c-d-e&lang=' + language} className='btn btn-cyan btn-menu'>C-D-E</Link>
+        <Link to={getPath() + '?mode=warm-up&note-notation=do-re-mi&lang=' + language} className='btn btn-orange btn-menu'>{language == "russian" ? "до-ре-ми" : "do-re-mi"}</Link>
         <ExitButton />
       </span>
     </>

@@ -1,10 +1,17 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import ExitButton from "../ExitButton";
 import TurnYourDeviceMessage from "../TurnYourDeviceMessageLandscape";
+import Dropdown from '../Dropdown';
+import { useEffect } from 'react';
 
 export default function NoteReadingPage() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const octave = searchParams.get('octave');
+  const language = searchParams.get('lang');
+
+  useEffect(() => {
+    setSearchParams({ lang: localStorage.getItem("lang") }, { replace: true });
+  }, []);
 
   const getPath = () => {
     let path;
@@ -55,17 +62,21 @@ export default function NoteReadingPage() {
         `}
       </style>
       <TurnYourDeviceMessage />
+      <Dropdown />
       <span className="center" id="menu-btns">
-        <h1>Чтение нот</h1>
-        <Link to={getPath()} className="btn btn-blue btn-menu">Белые клавиши</Link>
-        <Link to={{
-          pathname: '/mode/note-reading/black-keys',
-          search: octave && '?octave=' + octave,
-        }} className="btn btn-green btn-menu"> Чёрные клавиши</Link>
+        <h1>{language == "russian" ? "Чтение нот" : "Sight-reading"}</h1>
         <Link to={{
           pathname: getPath(),
-          search: '?mode=white-and-black-keys',
-        }} className="btn btn-purple btn-menu">Белые и чёрные клавиши</Link>
+          search: "?lang=" + language
+        }} className="btn btn-blue btn-menu">{language == "russian" ? "Белые клавиши" : "White keys"}</Link>
+        <Link to={{
+          pathname: '/mode/note-reading/black-keys',
+          search: (octave && ('?octave=' + octave)) + "&lang=" + language,
+        }} className="btn btn-green btn-menu">{language == "russian" ? "Чёрные клавиши" : "Black keys"}</Link>
+        <Link to={{
+          pathname: getPath(),
+          search: '?mode=white-and-black-keys&lang=' + language,
+        }} className="btn btn-purple btn-menu">{language == "russian" ? "Белые и чёрные клавиши" : "White & Black keys"}</Link>
         <ExitButton />
       </span>
     </>
