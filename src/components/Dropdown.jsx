@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import FlagOfRussia from "../assets/Flag_of_Russia.svg";
-import FlagOfUS from "../assets/Flag_of_US.svg";
+import FlagOfUK from "../assets/Flag_of_UK.svg";
 import { useSearchParams } from "react-router-dom";
 import EnglishOption from "./EnglishOption";
 import RussianOption from "./RussianOption";
@@ -60,7 +60,10 @@ function Dropdown() {
           }
           
           .flag {
+            max-width: 30px;
             height: 20px;
+            object-fit: cover;
+            object-position: center;
             border-radius: 4px;
           }
 
@@ -111,7 +114,7 @@ function Dropdown() {
       </style>
       <div className='dropdown'>
         <button className="dropdown-button" onFocus={handleFocus} onBlur={handleBlur}>
-          <img src={language == "russian" ? FlagOfRussia : FlagOfUS} className='flag'></img>
+          <img src={language == "russian" ? FlagOfRussia : FlagOfUK} className='flag'></img>
           <p style={{ fontFamily: "Rubik" }}>{language == "russian" ? "Русский" : "English"}</p>
           <i ref={caretIconRef} className='bi bi-caret-down-fill' style={{ fontSize: 16 + "px" }}></i>
         </button>

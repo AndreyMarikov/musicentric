@@ -1,4 +1,4 @@
-import FlagOfUS from "../assets/Flag_of_US.svg";
+import FlagOfUK from "../assets/Flag_of_UK.svg";
 import { useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -23,7 +23,7 @@ function EnglishOption() {
 
   return (
     <div ref={optionRef} className='option'>
-      <img src={FlagOfUS} className='flag'></img>
+      <img src={FlagOfUK} className='flag'></img>
       <p>English</p>
     </div>
   );
